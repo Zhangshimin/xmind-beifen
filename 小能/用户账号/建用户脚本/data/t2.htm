@@ -1,0 +1,849 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账户管理</title>
+<link rel="stylesheet" media="screen" href="http://kpi3-test.ntalker.com/application/static/setting/css/style_index.css" />
+<link rel="stylesheet" media="screen" href="http://kpi3-test.ntalker.com/application/static/default/css/common.css" />
+<script src="http://kpi3-test.ntalker.com/application/static/setting/js/jquery.js" type="text/javascript"></script>
+<script src="http://kpi3-test.ntalker.com/application/static/default/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="http://kpi3-test.ntalker.com/application/static/default/js/deCommon.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<!--头-->
+<div class="page_top"><span style="float: left;font-weight: bold;line-height: 24px;margin-left: 230px;">创建账户</span></div><script type="text/javascript">
+    $(function() {
+        var id = 'account';
+
+        if (id == 'nodisp') {
+            var arg = 'settingelse';
+            if (arg != 'expression' && arg != 'personsetting' && arg != 'enterprise' && arg != 'robot' && arg != 'ticket' && arg != 'autoinvitation' && arg != 'platbinding' && arg != 'platformaccount' && arg != 'platformmt' && arg != 'platform') {
+                arg = 'add_or_edit';
+            }
+            switch (arg) {
+                case 'expression':
+                    id = 'enterprise';
+                    break;
+                case 'personsetting':
+                    id = 'personal';
+                    break;
+                case 'enterprise':
+                    id = 'enterprise';
+                    break;
+                case 'platformaccount':
+                    id = 'platform';
+                    break;
+                case 'platformmt':
+                    id = 'platform';
+                    break;
+                case 'platbinding':
+                    id = 'platform';
+                    break;
+                case 'platform':
+                    id = 'platform';
+                    break;
+                case 'account_management':
+                    id = 'account';
+                    break;
+                case 'reception_group':
+                    id = 'reception';
+                    break;
+                case 'key_pages':
+                    id = 'keypage';
+                    break;
+                case 'black_list':
+                    id = 'bklist';
+                    break;
+                case 'notice':
+                    id = 'notice';
+                    break;
+                case 'autoinvitation':
+                    id = 'reception';
+                    break;
+                case 'robot':
+                    id = 'robot';
+            }
+            var url = location.href;
+            window.location.href = url + '&disp=' + id;
+        }
+        $('#' + id).show();
+        $('#' + id).prev().find('.icon_3_right').removeClass('icon_3_right').addClass('icon01');
+        if (id != 'personal') {
+            $('#personal').hide();
+        }
+    });
+</script>
+<style type="text/css">
+    .s_left_m li{
+        background: none repeat scroll 0 0 #f2f3f5;
+        border-bottom: 1px solid #f2f3f5;
+        cursor: pointer;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 60px;
+        width: 150px;
+    }
+</style>
+<!--左侧-->
+<div class="s_left_cont">
+    <ul class="s_left_m"><li class="title"><a href="http://kpi3-test.ntalker.com/index.php/personsetting/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal" class="leftNav">设 　置</a></li></ul>
+    <div class="nav02"><a href="javascript:void(0);" class="leftNav" >个人设置</a>
+        <div class="icon_3_right icon_posi" ></div></div>
+    <ul class="s_left_m" id="personal">
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">个人信息</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/change_pwd?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">修改密码</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/usage_words?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">个人常用话术</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/auto_answer?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">自动应答</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/chat_set?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">聊天设置</a></li>
+    </ul>
+            <div class="nav02" ><a href="javascript:void(0);" class="leftNav" >企业设置</a>
+            <div class="icon_3_right icon_posi" ></div></div>
+        <ul class="s_left_m" id="enterprise" style="display:none">
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">企业信息</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/webim?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">Web聊窗</a></li>    
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/unicom_kf_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">统一客服</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/enterprise_usage?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">企业常用话术</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/consultation_type?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">咨询类型</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/consulationComment?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">咨询评价</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/reply?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">留言</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/auto_answer?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">自动应答</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/work_time?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">工作时间</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/zhijian?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">质检</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/expression/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">表情管理</a></li>
+									            
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/visitor_sources?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">访客来源管理</a></li>
+                    </ul> 
+                    <div class="nav02" id="account"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account" class="leftNav" >帐户管理</a></div>
+            
+        <div class="nav02"><a href="javascript:void(0);" class="leftNav" >配置管理</a>
+            <div class="icon_3_right icon_posi"></div></div>
+        <ul class="s_left_m" id="reception" style="display:none;">
+            <li  ><a href="http://kpi3-test.ntalker.com/index.php/settingelse/reception_group?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=reception">接待组</a></li>
+                    <li  ><a href="http://kpi3-test.ntalker.com/index.php/settingelse/advice_icon?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=reception">咨询图标</a></li>
+                </ul>
+        <div class="nav02" id="keypage"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/key_pages?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=keypage" class="leftNav" >关键页面</a></div>
+            <!--robot-->
+        <div class="nav02" id="bklist"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/black_list?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=bklist" class="leftNav" >黑名单</a></div>
+    <div class="nav02" id="notice"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/notice?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=notice" class="leftNav" >通知</a></div>
+    <!--ticket-->
+            <div class="nav02"><a href="javascript:void(0);" class="leftNav" >营销设置</a>
+            <div class="icon_3_right icon_posi" ></div></div>
+        <ul class="s_left_m" id="quan_sale" style="display:none">
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrm/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=livecrm">优惠券</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrm/task?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=livecrm&saletype=1">促销活动</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrmidear/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&disp=livecrm&token=5a0b1a6d6215136d4d415d4d8cef378f">展示方案</a></li>
+        </ul>
+</div>
+<script  type="text/javascript">
+
+
+    $('.nav02').click(
+            function() {
+                var tip = $(this).next();
+                if (tip.attr('class') == 's_left_m') {
+                    $(this).next().toggle();
+                    status = tip.css('display');
+                    if (status == 'none') {
+                        $(this).find('.icon_posi').removeClass('icon01').addClass('icon_3_right');
+                    } else {
+                        $(this).find('.icon_posi').removeClass('icon_3_right').addClass('icon01');
+                    }
+                }
+            }
+    );
+    $('li').click(
+            function() {
+                window.location.href = $(this).children().attr('href');
+            }
+    );
+</script>
+<script src="http://kpi3-test.ntalker.com/application/static/setting/up/js/swfobject.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://kpi3-test.ntalker.com/application/static/setting/up/css/upload.css" type="text/css" />
+<script src="http://kpi3-test.ntalker.com/application/static/setting/js/enterprise_usage.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!---new flash upload image-->
+//保存缩略图的地址.
+var saveUrl = "http://kpi3-test.ntalker.com/application/static/setting/upicon/save_avatar.php";
+//保存摄象头白摄图片的地址.
+var cameraPostUrl = "http://kpi3-test.ntalker.com/application/static/setting/upicon/camera.php";
+//头像编辑器flash的地址.
+var editorFlaPath = "http://kpi3-test.ntalker.com/application/static/setting/up/swf/AvatarEditor.swf";
+//一下是flash无刷新上传
+//配置当前路径 例如:http://local.com/up
+var baseurl = 'http://kpi3-test.ntalker.com/application/static/setting';
+function show_result(msg){
+    if(msg=="1"){
+        window.location.href = 'http://kpi3-test.ntalker.com/index.php/personsetting/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal';
+    }else{
+        $('#float_logo').show();
+        $('#tip').html('保存失败');
+    }    
+}  
+	function checkUserSubmit(){
+		if(!onCheckSubmit('externalName',$.trim($('#externalName').val())))
+			return;
+		if(!onCheckSubmit('nickName',$.trim($('#nickName').val())))
+			return;
+		if($("#userForm input[name='usertype']").filter(':checked').val()==true){
+			//是机器人
+			if(!onCheckSubmit('no_reply',$('#no_reply').val()))
+				return;
+			if(!onCheckSubmit('welcome',$('#welcome').val()))
+				return;
+		}else{
+			if(!onCheckSubmit('accountName',$.trim($('#accountName').val())))
+				return;
+			//不是机器人
+			if(!onCheckSubmit('pass',$('#pass').val()))
+				return;
+			if(!onCheckSubmit('pass2',$('#pass2').val()))
+				return;
+			if($('#phoneservice')!=null && $('#phoneservice').val()=='1' && $('#phonepass')!=null && !onCheckSubmit('phonename',$.trim($('#phonename').val())))
+				return;
+			  
+			if(!onCheckSubmit('hand_day_num',$.trim($('#hand_day_num').val())))
+				return; 
+			if(!onCheckSubmit('hand_all_num',$.trim($('#hand_all_num').val())))
+				return;
+														}
+                var url = 'http://kpi3-test.ntalker.com/index.php/settingelse/add_account?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f';
+        var postdata = $('#userForm').serialize()+'&accountName='+$('#accountName').val()+'&usericon='+$('#icon').attr("src");
+        // console.log(postdata);
+        // console.log(url);return;
+		$.post(url,postdata,
+            function(result){
+				//console.log(result);
+                if(result=='-4'){
+                    $('#accountName_tip').atrr('class','f_red');
+                    $('#accountName_tip').html('登录名不能为中文');
+                }else if(result=='-1'){
+                    $('#accountName_tip').attr('class','f_red');
+                    $('#accountName_tip').html('该登录名已存在');
+                }else if(result=='-3'){
+                    $('#accountName_tip').attr('class','f_red');
+                    $('#accountName_tip').html('您还没有登录，请登录');
+                }else if(result=='-2'){
+                    $('#accountName_tip').attr('class','f_red');
+                    $('#accountName_tip').html('您没有添加用户的权限');
+                }else if(result=='-5'){
+                    $('#accountName_tip').attr('class','f_red');
+                    $('#accountName_tip').html('用户数已达上限');
+                }else if(result=='-6'){
+                    $('#fenji_num_tip').attr('class','f_red');
+                    $('#fenji_num_tip').html('分机号已经存在');
+				}else if(result=='-8'){
+                    $('#fenji_number_tip').attr('class','f_red');
+                    $('#fenji_number_tip').html('分机号创建失败');
+                }else if(result=='1'){
+                    window.location.href="http://kpi3-test.ntalker.com/index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account";
+                }else{
+                    $('#fenji_num_tip').attr('class','f_red');
+                    $('#fenji_num_tip').html('创建分机号错误');
+                }            
+            
+            }
+        );
+	}   
+	function onCheckSubmit(type,val){
+		var b=true;
+		var msg='';
+		var tipid='#'+type+'_tip';
+		switch(type){
+			case 'accountName':
+				if($('#accountName').attr('disabled')==false){
+					if(!val.length>0){
+						b=false;
+						msg='登录名不能为空';
+					}else if(!checkLength(val,24)){
+						b=false;
+						msg='登录名不超过24个字符';
+					}else{
+						var regex=/^[0-9a-z_]{0,24}$/;
+						if(!regex.test(val)){
+							b=false;
+							msg='登录名只能为小写英文、数字和下划线。';
+						}
+						var reg =/[\u4E00-\u9FA5\uFF00-\uFFFF]/g;
+						if(reg.test(val)){
+							b=false;
+							msg='登录名不能含汉字';
+						}
+					}
+				}
+				break;
+			case 'no_reply':
+				if(!val.length>0){
+					$("#no_reply").css("border","1px solid red");
+					return false;
+				}
+				break;
+			case 'welcome':
+				if($('#robot_welcome').attr('style')!='display: none;'){
+					if(!val.length>0){
+						$("#welcome").css("border","1px solid red");
+						return false;
+					}
+				}
+				break;
+			case 'nickName':
+				if(!val.length>0){
+					msg='内部名不能为空';
+					b=false;
+				}else if(!checkLength(val,32)){
+					b=false;
+					msg='内部名最多16个汉字或32个英文';
+				}else{
+					var regex=/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/;
+					if(!regex.test(val)){
+						b=false;
+						msg='只能为英文、数字、下划线和汉字。'
+					}
+				}
+				break;
+			case 'externalName':
+				if(!val.length>0){
+					msg='外部名不能为空';
+					b=false;
+				}else if(!checkLength(val,32)){
+					b=false;
+					msg='外部名最多16个汉字或32个英文';
+				}else{
+					var regex=/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/;
+                    
+					if(!regex.test(val)){
+						b=false;
+						msg='只能为英文、数字、下划线和汉字。'
+					}
+				}
+				break;
+			case 'pass':
+				if(val.length<6){
+					b=false;
+					msg='密码不少于6位';
+				}else if(val.length>16){
+					b=false;
+					msg='密码不大于16位';
+				}
+				break;
+			case 'pass2':
+				if(val!=$('#pass').val()){
+					b=false;
+					msg='两次输入不一致';
+				}
+			case 'phonename':
+				if(!val.length>0){
+					msg='电话用户名不能为空';
+					b=false;
+				}
+				break;
+			case 'phonepass':
+				if(!val.length>0){
+					msg='电话密码不能为空';
+					b=false;
+				}
+				break;
+			case 'mobile':
+				if(val.length>0){
+					if(!/^0{0,1}(13[0-9]|15[0-9]|18[0-9])[0-9]{8}$/.test(val)){
+						b=false;
+						msg='请输入正确的手机号码';
+					}
+				}
+				break;
+			
+      case 'hand_day_num':
+      case 'hand_all_num':
+        if(!verifyNum(val)){
+          b=false;
+          msg='请输入正确的数字(最大3位数)';
+        }
+        break;
+      case 'fenji_num':
+        if(val.length>0){
+          if(!/^8\d{3}$/.test(val)){
+            msg='请输入正确分机号码(必须是4位数且以8开头)';
+            b=false;
+          } 
+        }
+        break;
+        case 'fenji_number':
+			if(val.length>0){
+				if(!/^[2-9]\d{3}$/.test(val)){
+					msg='请输入正确分机号码(分机号取值范围1000-9999)';
+					b=false;
+				}
+				var fenji_number = val;
+								var url = 'http://kpi3-test.ntalker.com/index.php/settingelse/check_tinet_con?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f';
+				if(fenji_number > 9999 || fenji_number < 1000){
+					msg='请输入正确分机号码(分机号取值范围1000-9999)';
+					b=false;
+				}
+				var postdata = 'con='+fenji_number;
+				$.post(url,postdata,
+					function(result){
+						var Data = eval('(' + result + ')');
+						if(Data.code == '1000'){
+							msg='请输入正确分机号码(分机号已存在)';
+							b=false;
+						}
+					});
+			}
+        break;
+			default:
+				break;
+		}
+		if(!b){
+			$(tipid).attr('class','f_red');
+			$(tipid).html(msg);
+		}else{
+			$(tipid).html(msg);
+    }
+		return b;
+	}  
+	function checkLength(str,maxLen){
+		var iLength = 0;
+		for(var i = 0;i<str.length;i++){
+			if(str.charCodeAt(i) >255){
+				iLength += 2;
+			}else{
+				iLength += 1;
+			}
+		}
+		if(iLength>maxLen)
+			return false;
+		else
+			return true;  
+	}   
+	$(function(){
+		$('#account').attr('class','nav02 sele');
+	}); 
+	//定位显示tips
+	function showTips(event,tips){  
+		x=event.clientX;  
+		y=event.clientY;  
+		$('#divTips').html(tips);
+		$('#divTips').css('left',x);  
+		$('#divTips').css('top',y);  
+		$('#divTips').show();;  
+	}  
+	function hiddenTips(){  
+		document.getElementById("divTips").style.display="none";  
+	}
+	
+	function verifyTinet(){
+		var val = $("#fenji_number").val();
+		if(val.trim() != ''){
+			if(!/^[1-9]\d{3}$/.test(val)){
+				console.log(val);
+				msg='请输入正确分机号码(分机号取值范围1000-9999)';
+				$("#fenji_number_tip").html('<span style="color:red">'+msg+'</span>');
+				return;
+			}
+			var fenji_number = val;
+						var url = 'http://kpi3-test.ntalker.com/index.php/settingelse/check_tinet_con?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f';
+			if(fenji_number > 9999 || fenji_number < 1000){
+				msg='请输入正确分机号码(分机号取值范围1000-9999)';
+				$("#fenji_number_tip").html('<span style="color:red">'+msg+'</span>');
+				return;
+			}
+			var postdata = 'con='+fenji_number;
+			$.post(url,postdata,
+				function(result){
+					var Data = eval('(' + result + ')');
+					if(Data.code == '1000'){
+						msg='分机号已存在';
+						$("#fenji_number_tip").html('<span style="color:red">'+msg+'</span>');
+						return;
+					}
+			});
+			
+		}
+	}
+</script>
+<div style="max-width:400px;padding:10px; z-index:20000;word-wrap:break-word; display:none; word-break:break-all;text-align:left;background:#f8efb6;background: -moz-linear-gradient(top, #ffffff, #e7e7f1);border-radius:2px;border:1px solid #767676;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #e7e7f1));-webkit-box-shadow: 3px 3px 3px #767676;-moz-box-shadow: 3px 3px 3px #767676;box-shadow: 3px 3px 3px #767676; position:absolute;"  id="divTips" name="divTips"></div>
+<!--右侧-->
+<div class="s_righ_cont s_righ_conts">
+  <form id='userForm'>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table_s2">
+  <tr></tr>
+  <tr>
+    <td width="11%" align="left" class="td1">账号信息</td>
+    <td width="17%">&nbsp;</td>
+    <td width="72%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>是否机器人：</td>
+    <td>
+		<input type="radio" onclick="is_robot(1)"  name="usertype" value="1">是&nbsp&nbsp&nbsp&nbsp
+		<input type="radio" onclick="is_robot(0)" checked="checked" name="usertype" value="0">否
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="td2">选择权限：</td>
+    <td align="left"><div class="input_div94 f_l">
+    <div id='current_pri' onclick="authority()" >
+    销售</div>
+      <div class="input_div_list" id="input_div_list" style="display:none;">
+        <div onclick="choosePri('admin')" style="width:139px;">管理员</div>
+        <div onclick="choosePri('sale')" style="width:139px;">销售</div>
+        <div onclick="choosePri('inspector')" style="width:139px;">质检员</div>
+        <div onclick="choosePri('groupleader')" style="width:139px;">组长</div>
+      </div>
+    </div></td>
+    <td>&nbsp;<input type='hidden' name='pri' id='pri' value="sale" /></td>
+  </tr>
+  <tr>
+    <td class="td2">选择分组：</td>
+    <td><div class="input_div94 f_l" onclick ="group()" >
+    <div id='current_group' style="width:100px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onmouseover="showTips(event,'客户服务部')" onmouseout="hiddenTips()">客户服务部</div>
+      <div class="input_div_list" id="input_div_list2" style="display:none;height:160px;overflow:auto;overflow-x:hidden;">
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(4189,'客户服务部')" onmouseover="showTips(event,'客户服务部')" onmouseout="hiddenTips()">客户服务部</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11051,'市场部')" onmouseover="showTips(event,'市场部')" onmouseout="hiddenTips()">市场部</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11052,'销售一部')" onmouseover="showTips(event,'销售一部')" onmouseout="hiddenTips()">销售一部</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11053,'销售二部')" onmouseover="showTips(event,'销售二部')" onmouseout="hiddenTips()">销售二部</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11054,'测试部')" onmouseover="showTips(event,'测试部')" onmouseout="hiddenTips()">测试部</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11062,'测试组2 销售')" onmouseover="showTips(event,'测试组2 销售')" onmouseout="hiddenTips()">测试组2 销售</div>
+              <div style="width:120px;text-overflow:ellipsis;overflow:hidden;-o-text-overflow:ellipsis;-icab-text-overflow: ellipsis;-khtml-text-overflow: ellipsis;-moz-text-overflow: ellipsis;-webkit-text-overflow: ellipsis; white-space:nowrap; word-break:keep-all;" onclick="chooseGroup(11119,'测试分组2')" onmouseover="showTips(event,'测试分组2')" onmouseout="hiddenTips()">测试分组2</div>
+        
+      </div>
+    </div>
+    </td>
+    <td class="f_gray">&nbsp;<input type='hidden' name='gid' id='gid' value='4189' /></td>
+  </tr>
+  <tr class="robot_class">
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>登录名：</td>
+    <td>
+    <input type="text" name="accountName" id="accountName" class="input_210 td4" onkeyup='checkChi(this,event)' onfocus="d('accountName')" onkeydown="if(event.keyCode==13){return false;}"  />
+	<input type="hidden" name="user_id" value="">
+    </td>
+    <td><span id='accountName_tip' class="f_gray">不能用中文，最多24个字符</span></td>
+  </tr>
+  <tr>
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>外部名称：</td>
+    <td><input type="text" class="input_210 td4" name="externalName" id="externalName" onfocus="d('externalName')" onkeydown="if(event.keyCode==13){return false;}"  /></td>
+    <td><span id='externalName_tip' class="f_gray">最多16个汉字</span></td>
+  </tr>
+  <tr>
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>内部名称：</td>
+    <td><input type="text" class="input_210 td4" name="nickName" id='nickName' onfocus="d('nickName')" onkeydown="if(event.keyCode==13){return false;}"   /></td>
+    <td><span id='nickName_tip' class="f_gray">最多16个汉字</span></td>
+  </tr>
+  <tr class="robot_class" >
+    <td width="11%" align="left" class="td1">设置密码</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="robot_class" >
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>密码：</td>
+    <td><input name="pass" id='pass' type="password" class="input_210 td4" onfocus="d('pass')" onkeydown="if(event.keyCode==13){return false;}"  /></td>
+    <td><span id='pass_tip' class="f_gray">由6-20个英文字母/数字或物殊字符组成</span></td>
+  </tr>
+  <tr class="robot_class" >
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>确认密码：</td>
+    <td><input name="pass2" id='pass2' type="password" class="input_210 td4" onfocus="d('pass2')" onkeydown="if(event.keyCode==13){return false;}"  /></td>
+    <td><span id='pass2_tip' class="f_gray">再次输入密码</span></td>
+  </tr>
+  <tr class="robot_icon" style="display:none">
+	  <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>设置机器人头像</td>
+	  <td>
+		  <div style="position:relative;float:left;">
+					<img id='icon' name='icon' src="http://kpi3-test.ntalker.com/application/static/setting/images/head.jpg" class="s_righ_cont_img" />
+					<div onclick="logo_upload();" style="width:110px;height:20px;background:black;position:absolute;left:3px;top:93px;text-align:center;line-height:20px;color:white;cursor:pointer;background:url(http://kpi3-test.ntalker.com/application/static/setting/images/tm.png);">修改</div>
+		  </div>
+	  </td>
+  </tr>
+  <tr class="robot_icon" style="display:none">
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>是否开启欢迎语：</td>
+    <td>
+		<input type="radio" onclick="$('#robot_welcome').show();"  name="is_robot_welcome" value="1">是&nbsp&nbsp&nbsp&nbsp
+		<input type="radio" onclick="$('#robot_welcome').hide();" checked="checked" name="is_robot_welcome" value="0">否
+    </td>
+    <td></td>
+  </tr>
+  <tr id="robot_welcome" style="display:none">
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>欢迎语</td>
+    <td>
+      <textarea url="true" onkeyup="textCounter(welcome,remLen1,500);" onkeydown="textCounter(welcome,remLen1,500);" onkeyop="this.value" class="input_210" style="resize: none;height:120px;width:300px;display:block;float:left;" rows="3" cols="40" id="welcome" name="welcome"></textarea>
+    </td>
+	<td>
+		<span style="display:block;float:left;margin-top:110px;color:#999;" name="errmsg2" id="errmsg2" class="xz">
+			<input type="text" id="remLen1" name="remLen1" readonly="readonly" style="border:0px;width:20px;color:#999; font: 12px/160%;background: #fff none repeat scroll 0 0;">/500
+		</span>
+	</td>
+  </tr>
+  <tr class="robot_icon" style="display:none">
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>无答案时回复</td>
+    <td>
+      <textarea url="true" onkeyup="textCounter(no_reply,remLen,500);" onkeydown="textCounter(no_reply,remLen,500);" onkeyop="this.value" class="input_210" style="resize: none;height:120px;width:300px;display:block;float:left;" rows="3" cols="40" id="no_reply" name="no_reply"></textarea>
+    </td>
+	<td>
+		<span style="display:block;float:left;margin-top:110px;color:#999;" name="errmsg2" id="errmsg2" class="xz">
+			<input type="text" id="remLen" name="remLen" readonly="readonly" style="border:0px;width:20px;color:#999; font: 12px/160%;background: #fff none repeat scroll 0 0;">/500
+		</span>
+	</td>
+    </tr>
+  <tr class="robot_class" >
+    <td width="11%" align="left" class="td1">最大接待量</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="robot_class" >
+    <td height="40"></td>
+    <td class="f_gray"><div class="input_div94 f_l input_div60" onclick ="receptions()" ><div id='current_rep'>8</div>
+      <div class="input_div_list" id="input_div_list3" style="display:none;height:150px;overflow-y:auto;overflow-x:hidden;">
+              <div onclick="chooseRep('1')">1</div>
+              <div onclick="chooseRep('2')">2</div>
+              <div onclick="chooseRep('3')">3</div>
+              <div onclick="chooseRep('4')">4</div>
+              <div onclick="chooseRep('5')">5</div>
+              <div onclick="chooseRep('6')">6</div>
+              <div onclick="chooseRep('7')">7</div>
+              <div onclick="chooseRep('8')">8</div>
+              <div onclick="chooseRep('9')">9</div>
+              <div onclick="chooseRep('10')">10</div>
+              <div onclick="chooseRep('11')">11</div>
+              <div onclick="chooseRep('12')">12</div>
+              <div onclick="chooseRep('13')">13</div>
+              <div onclick="chooseRep('14')">14</div>
+              <div onclick="chooseRep('15')">15</div>
+              <div onclick="chooseRep('16')">16</div>
+              <div onclick="chooseRep('17')">17</div>
+              <div onclick="chooseRep('18')">18</div>
+              <div onclick="chooseRep('19')">19</div>
+              <div onclick="chooseRep('20')">20</div>
+              <div onclick="chooseRep('21')">21</div>
+              <div onclick="chooseRep('22')">22</div>
+              <div onclick="chooseRep('23')">23</div>
+              <div onclick="chooseRep('24')">24</div>
+              <div onclick="chooseRep('25')">25</div>
+              <div onclick="chooseRep('26')">26</div>
+              <div onclick="chooseRep('27')">27</div>
+              <div onclick="chooseRep('28')">28</div>
+              <div onclick="chooseRep('29')">29</div>
+              <div onclick="chooseRep('30')">30</div>
+              <div onclick="chooseRep('31')">31</div>
+              <div onclick="chooseRep('32')">32</div>
+              <div onclick="chooseRep('33')">33</div>
+              <div onclick="chooseRep('34')">34</div>
+              <div onclick="chooseRep('35')">35</div>
+              <div onclick="chooseRep('36')">36</div>
+              <div onclick="chooseRep('37')">37</div>
+              <div onclick="chooseRep('38')">38</div>
+              <div onclick="chooseRep('39')">39</div>
+              <div onclick="chooseRep('40')">40</div>
+              <div onclick="chooseRep('41')">41</div>
+              <div onclick="chooseRep('42')">42</div>
+              <div onclick="chooseRep('43')">43</div>
+              <div onclick="chooseRep('44')">44</div>
+              <div onclick="chooseRep('45')">45</div>
+              <div onclick="chooseRep('46')">46</div>
+              <div onclick="chooseRep('47')">47</div>
+              <div onclick="chooseRep('48')">48</div>
+              <div onclick="chooseRep('49')">49</div>
+              <div onclick="chooseRep('50')">50</div>
+              <div onclick="chooseRep('51')">51</div>
+              <div onclick="chooseRep('52')">52</div>
+              <div onclick="chooseRep('53')">53</div>
+              <div onclick="chooseRep('54')">54</div>
+              <div onclick="chooseRep('55')">55</div>
+              <div onclick="chooseRep('56')">56</div>
+              <div onclick="chooseRep('57')">57</div>
+              <div onclick="chooseRep('58')">58</div>
+              <div onclick="chooseRep('59')">59</div>
+              <div onclick="chooseRep('60')">60</div>
+              <div onclick="chooseRep('61')">61</div>
+              <div onclick="chooseRep('62')">62</div>
+              <div onclick="chooseRep('63')">63</div>
+              <div onclick="chooseRep('64')">64</div>
+              <div onclick="chooseRep('65')">65</div>
+              <div onclick="chooseRep('66')">66</div>
+              <div onclick="chooseRep('67')">67</div>
+              <div onclick="chooseRep('68')">68</div>
+              <div onclick="chooseRep('69')">69</div>
+              <div onclick="chooseRep('70')">70</div>
+              <div onclick="chooseRep('71')">71</div>
+              <div onclick="chooseRep('72')">72</div>
+              <div onclick="chooseRep('73')">73</div>
+              <div onclick="chooseRep('74')">74</div>
+              <div onclick="chooseRep('75')">75</div>
+              <div onclick="chooseRep('76')">76</div>
+              <div onclick="chooseRep('77')">77</div>
+              <div onclick="chooseRep('78')">78</div>
+              <div onclick="chooseRep('79')">79</div>
+              <div onclick="chooseRep('80')">80</div>
+              <div onclick="chooseRep('81')">81</div>
+              <div onclick="chooseRep('82')">82</div>
+              <div onclick="chooseRep('83')">83</div>
+              <div onclick="chooseRep('84')">84</div>
+              <div onclick="chooseRep('85')">85</div>
+              <div onclick="chooseRep('86')">86</div>
+              <div onclick="chooseRep('87')">87</div>
+              <div onclick="chooseRep('88')">88</div>
+              <div onclick="chooseRep('89')">89</div>
+              <div onclick="chooseRep('90')">90</div>
+              <div onclick="chooseRep('91')">91</div>
+              <div onclick="chooseRep('92')">92</div>
+              <div onclick="chooseRep('93')">93</div>
+              <div onclick="chooseRep('94')">94</div>
+              <div onclick="chooseRep('95')">95</div>
+              <div onclick="chooseRep('96')">96</div>
+              <div onclick="chooseRep('97')">97</div>
+              <div onclick="chooseRep('98')">98</div>
+              <div onclick="chooseRep('99')">99</div>
+              <div onclick="chooseRep('100')">100</div>
+            </div>
+    </div>
+    <input type='hidden' name='maxreception' id='maxreception' value='8' />
+      &nbsp;建议先选择8 </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="robot_class" >
+    <td width="11%" align="left" class="td1">留言处理</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="robot_class" >
+    <td class="td2">处理范围：</td>
+    <td colspan="2" class="f_gray">
+    <div class="input_div94 f_l" > 
+    <div id='current_deal' onclick="liuyan()">
+    只处理自己的留言</div>
+        
+	    <div id='div_deal' class="input_div_list" style="display:none;height:150px;overflow-y:auto;overflow-x:hidden;">
+      <div onclick="chooseDeal('all','全部')">全部</div>
+      <div onclick="chooseDeal('own','只处理自己的留言')">只处理自己的留言</div>
+      	            <div onclick="chooseDeal('4189','客户服务部')">客户服务部</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_cp3','')"></div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ntalker_steven','ntalker_steven')">ntalker_steven</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ntalker_lizhipeng','ntalker_lizhipeng')">ntalker_lizhipeng</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ntalker_maliqun','ntalker_maliqun')">ntalker_maliqun</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ntalker_ralf','ntalker_ralf')">ntalker_ralf</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_客服01','客服01')">客服01</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_客服02','客服02')">客服02</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_客服03','客服03')">客服03</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ralf','ralf')">ralf</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_zhengguoqing','zgq')">zgq</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_admin','liusi_admin')">liusi_admin</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_huawei','huawei')">huawei</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_zj','liusi_zj')">liusi_zj</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_kf','liusi_kf')">liusi_kf</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_zj2','liusi_zj2')">liusi_zj2</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi','ceshi')">ceshi</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_winmin','winmin')">winmin</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_zhangsan','张三')">张三</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_admin2','liusi_admin2')">liusi_admin2</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_sale','普通客服')">普通客服</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_pzx_admin','pzx_admin')">pzx_admin</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi100','测试')">测试</div>
+                	                <div onclick="chooseDeal('11051','市场部')">市场部</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_scbzuzhang','scbzuzhang')">scbzuzhang</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_scbxiaoshou','scbxiaoshou')">scbxiaoshou</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ershixiong','二师兄')">二师兄</div>
+                	                <div onclick="chooseDeal('11052','销售一部')">销售一部</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xsybzuzhang','xsybzuzhang')">xsybzuzhang</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xsybxiaoshou','xsybxiaoshou')">xsybxiaoshou</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_gl','liusi_gl')">liusi_gl</div>
+                	                <div onclick="chooseDeal('11053','销售二部')">销售二部</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xsebzuzhang','xsebzuzhang')">xsebzuzhang</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xsebxiaoshou','xsebxiaoshou')">xsebxiaoshou</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_liusi_kf2','liusi_kf2')">liusi_kf2</div>
+                	                <div onclick="chooseDeal('11054','测试部')">测试部</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xiaoneng3','客服测试账号')">客服测试账号</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xiaoneng2','组长测试账号')">组长测试账号</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xiaoneng1','管理员测试账号')">管理员测试账号</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi000','ceshi000')">ceshi000</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi001','ceshi001')">ceshi001</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_zsmwl0012312','zsmwl0012312')">zsmwl0012312</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi01','ceshi01')">ceshi01</div>
+                	          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi011','ceshi011')">ceshi011</div>
+                	                <div onclick="chooseDeal('11062','测试组2 销售')">测试组2 销售</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_xiaoneng4','测试2销售小能4')">测试2销售小能4</div>
+                	                <div onclick="chooseDeal('11119','测试分组2')">测试分组2</div>
+	          		          		<div onclick="chooseDeal('kf_1111_ISME9754_T2D_ceshi1','ceshi1')">ceshi1</div>
+                	        </div>
+	  
+    </div>    
+    <input type='hidden' name='dealkfid' id='dealkfid' value="own" >
+      <div id='deal_tip'>&nbsp;请选择留言所属客服的分组或者单个客服</div>
+      </td>
+     </tr>
+  <tr class="robot_class" >
+    <td class="td2">短信通知：</td>
+    <td><input name="mobile" class="input_210 td4" id='mobile' type="text" onfocus="d('mobile')" onkeydown="if(event.keyCode==13){return false;}"  />  </td>
+    <td class="f_gray" id='mobile_tip'>请输入接收留言通知的手机号码</td>
+  </tr>
+  <tr class="robot_class" >
+    <td class="td2">邮件通知：</td>
+    <td><input name="email" class="input_210 td4" id='email' type="text"  onfocus="d('email')" onkeydown="if(event.keyCode==13){return false;}"  /></td>
+    <td class="f_gray" id='email_tip'>请输入接收留言通知的Email地址</td>
+  </tr>
+<tr class="robot_class" >
+    <td width="11%" align="left" class="td1">工单上限</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+<tr class="robot_class" >
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>每日上限：</td>
+    <td><input name="hand_day_num" class="input_210 td4" id='hand_day_num' type="text" onfocus="d('hand_day_num')" onkeydown="if(event.keyCode==13){return false;}"  />  </td>
+    <td class="f_gray" id='hand_day_num_tip'>请输入每日新增上限数量</td>
+  </tr>
+  <tr class="robot_class" >
+    <td class="td2"><span style="color:red;margin:5px 5px 0 0;">*</span>工单总上限：</td>
+    <td><input name="hand_all_num" class="input_210 td4" id='hand_all_num' type="text"  onfocus="d('hand_all_num')" onkeydown="if(event.keyCode==13){return false;}"  /></td>
+    <td class="f_gray" id='hand_all_num_tip'>请输入工单总上限数量</td>
+  </tr>
+ 
+
+
+       <tr>
+    <td style="height:45px;">&nbsp;</td>
+    <td style="text-align:center">
+      <input type="button" name="save" id="button2" class="but bhj" style="float:left;text-align:center;" value="保 存" onclick="checkUserSubmit()"/> 
+      <input type="button" name="save" id="button2" class="but bhj" style="float:left;text-align:center;margin-left:15px;" value="取 消" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account'"/> 
+      
+      
+   </td>
+    <td>&nbsp;</td>
+  </tr>
+  </table>
+ </form>   
+</div>
+<!--设置－头像－弹出层--target="hiddeniframe"-->
+<div class="gjym_float_div" style="width:514px;height:560px;top:0px;position:relative;z-index:100000000;background:#FDFDFD;display:none;border:1px solid #d4d4d4;" id="info">
+<div class="div_top">
+    <div class="f_l f_b">选择图片</div><div class="f_r"><div class=" icon_close" onclick="$('#info').css('display','none')"></div></div>
+</div>
+<div style="width:600px;margin:0 auto;" id="info1">
+	<div>
+		
+		<div style="padding:10px 0;color:#666;margin-left:20px;">
+		上传本地图片
+		</div>
+		
+		<!-- 头像flash 无刷新上传开始 -->
+		<input type="hidden" name="dosubmit" value="1" />
+		<input type="hidden" name="fsize" id="fsize" value="">
+		<input type="hidden" name="forward" value="">
+		<input type="hidden" name="uuid" value="1">
+		<input type="hidden" name="userid" id="userid" value="kf_1111_ISME9754_T2D_ntalker_lizhipeng">
+		<input type="hidden" id="video_uploader" value="0">
+	
+		<table>
+			<tr>
+				<td><div id="uploadp" style="margin-left:20px;"></div></td>
+				<td><div id="upload_flash_video"></div>  </td>
+				<td><div id="filesize"></div></td>
+			</tr>
+		</table>
+		<!-- /头像flash 无刷新上传结束 -->
+		
+		<div id="avatar_editor"></div>
+		
+	</div>
+</div>
+</div>
+<script src="http://kpi3-test.ntalker.com/application/static/setting/up/js/upload.js" type="text/javascript"></script>
+<script></script></body>
+</html>

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Server: nginx/1.6.2
+Date: Fri, 25 Mar 2016 02:41:12 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Powered-By: PHP/5.3.3
+Set-Cookie: ci_session=a%3A14%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22189bf70d34c403a19855f21021b0d7bc%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A15%3A%22123.125.196.146%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A120%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+8.0%3B+Windows+NT+6.1%3B+WOW64%3B+Trident%2F4.0%3B+SLCC2%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.5.30729%3B+.N%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1458873671%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3Bs%3A5%3A%22token%22%3Bs%3A32%3A%225a0b1a6d6215136d4d415d4d8cef378f%22%3Bs%3A6%3A%22userid%22%3Bs%3A38%3A%22kf_1111_ISME9754_T2D_ntalker_lizhipeng%22%3Bs%3A4%3A%22role%22%3Bs%3A5%3A%22admin%22%3Bs%3A6%3A%22roleid%22%3Bi%3A2%3Bs%3A3%3A%22gid%22%3Bs%3A4%3A%224189%22%3Bs%3A6%3A%22siteID%22%3Bs%3A7%3A%22kf_1111%22%3Bs%3A8%3A%22kpi_bind%22%3Bi%3A0%3Bs%3A8%3A%22versions%22%3Bs%3A1%3A%221%22%3Bs%3A11%3A%22site_status%22%3Bi%3A1%3B%7D5fe40d9136bf8a78a4b291d30c02059a; path=/; httponly
+Set-Cookie: ci_session=a%3A14%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%22189bf70d34c403a19855f21021b0d7bc%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A15%3A%22123.125.196.146%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A120%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+8.0%3B+Windows+NT+6.1%3B+WOW64%3B+Trident%2F4.0%3B+SLCC2%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.5.30729%3B+.N%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1458873671%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3Bs%3A5%3A%22token%22%3Bs%3A32%3A%225a0b1a6d6215136d4d415d4d8cef378f%22%3Bs%3A6%3A%22userid%22%3Bs%3A38%3A%22kf_1111_ISME9754_T2D_ntalker_lizhipeng%22%3Bs%3A4%3A%22role%22%3Bs%3A5%3A%22admin%22%3Bs%3A6%3A%22roleid%22%3Bi%3A2%3Bs%3A3%3A%22gid%22%3Bs%3A4%3A%224189%22%3Bs%3A6%3A%22siteID%22%3Bs%3A7%3A%22kf_1111%22%3Bs%3A8%3A%22kpi_bind%22%3Bi%3A0%3Bs%3A8%3A%22versions%22%3Bs%3A1%3A%221%22%3Bs%3A11%3A%22site_status%22%3Bi%3A1%3B%7D5fe40d9136bf8a78a4b291d30c02059a; path=/; httponly
+Content-Encoding: gzip
+

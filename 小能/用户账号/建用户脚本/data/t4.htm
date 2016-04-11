@@ -1,0 +1,1137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账户管理</title>
+<link rel="stylesheet" media="screen" href="http://kpi3-test.ntalker.com/application/static/setting/css/style_index.css" />
+<link rel="stylesheet" media="screen" href="http://kpi3-test.ntalker.com/application/static/default/css/common.css" />
+<script src="http://kpi3-test.ntalker.com/application/static/setting/js/jquery.js" type="text/javascript"></script>
+<script src="http://kpi3-test.ntalker.com/application/static/default/js/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="http://kpi3-test.ntalker.com/application/static/default/js/deCommon.js" type="text/javascript"></script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+<!--头-->
+<div class="page_top"><span style="float: left;font-weight: bold;line-height: 24px;margin-left: 230px;">账户管理</span></div><script type="text/javascript">
+    $(function() {
+        var id = 'account';
+
+        if (id == 'nodisp') {
+            var arg = 'settingelse';
+            if (arg != 'expression' && arg != 'personsetting' && arg != 'enterprise' && arg != 'robot' && arg != 'ticket' && arg != 'autoinvitation' && arg != 'platbinding' && arg != 'platformaccount' && arg != 'platformmt' && arg != 'platform') {
+                arg = 'account_management';
+            }
+            switch (arg) {
+                case 'expression':
+                    id = 'enterprise';
+                    break;
+                case 'personsetting':
+                    id = 'personal';
+                    break;
+                case 'enterprise':
+                    id = 'enterprise';
+                    break;
+                case 'platformaccount':
+                    id = 'platform';
+                    break;
+                case 'platformmt':
+                    id = 'platform';
+                    break;
+                case 'platbinding':
+                    id = 'platform';
+                    break;
+                case 'platform':
+                    id = 'platform';
+                    break;
+                case 'account_management':
+                    id = 'account';
+                    break;
+                case 'reception_group':
+                    id = 'reception';
+                    break;
+                case 'key_pages':
+                    id = 'keypage';
+                    break;
+                case 'black_list':
+                    id = 'bklist';
+                    break;
+                case 'notice':
+                    id = 'notice';
+                    break;
+                case 'autoinvitation':
+                    id = 'reception';
+                    break;
+                case 'robot':
+                    id = 'robot';
+            }
+            var url = location.href;
+            window.location.href = url + '&disp=' + id;
+        }
+        $('#' + id).show();
+        $('#' + id).prev().find('.icon_3_right').removeClass('icon_3_right').addClass('icon01');
+        if (id != 'personal') {
+            $('#personal').hide();
+        }
+    });
+</script>
+<style type="text/css">
+    .s_left_m li{
+        background: none repeat scroll 0 0 #f2f3f5;
+        border-bottom: 1px solid #f2f3f5;
+        cursor: pointer;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 60px;
+        width: 150px;
+    }
+</style>
+<!--左侧-->
+<div class="s_left_cont">
+    <ul class="s_left_m"><li class="title"><a href="http://kpi3-test.ntalker.com/index.php/personsetting/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal" class="leftNav">设 　置</a></li></ul>
+    <div class="nav02"><a href="javascript:void(0);" class="leftNav" >个人设置</a>
+        <div class="icon_3_right icon_posi" ></div></div>
+    <ul class="s_left_m" id="personal">
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">个人信息</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/change_pwd?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">修改密码</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/usage_words?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">个人常用话术</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/auto_answer?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">自动应答</a></li>
+        <li  ><a href="http://kpi3-test.ntalker.com/index.php/personsetting/chat_set?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=personal">聊天设置</a></li>
+    </ul>
+            <div class="nav02" ><a href="javascript:void(0);" class="leftNav" >企业设置</a>
+            <div class="icon_3_right icon_posi" ></div></div>
+        <ul class="s_left_m" id="enterprise" style="display:none">
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">企业信息</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/webim?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">Web聊窗</a></li>    
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/unicom_kf_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">统一客服</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/enterprise_usage?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">企业常用话术</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/consultation_type?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">咨询类型</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/consulationComment?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">咨询评价</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/reply?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">留言</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/auto_answer?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">自动应答</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/work_time?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">工作时间</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/zhijian?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">质检</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/expression/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">表情管理</a></li>
+									            
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/enterprise/visitor_sources?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=enterprise">访客来源管理</a></li>
+                    </ul> 
+                    <div class="nav02 sele" id="account"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account" class="leftNav" >帐户管理</a></div>
+            
+        <div class="nav02"><a href="javascript:void(0);" class="leftNav" >配置管理</a>
+            <div class="icon_3_right icon_posi"></div></div>
+        <ul class="s_left_m" id="reception" style="display:none;">
+            <li  ><a href="http://kpi3-test.ntalker.com/index.php/settingelse/reception_group?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=reception">接待组</a></li>
+                    <li  ><a href="http://kpi3-test.ntalker.com/index.php/settingelse/advice_icon?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=reception">咨询图标</a></li>
+                </ul>
+        <div class="nav02" id="keypage"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/key_pages?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=keypage" class="leftNav" >关键页面</a></div>
+            <!--robot-->
+        <div class="nav02" id="bklist"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/black_list?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=bklist" class="leftNav" >黑名单</a></div>
+    <div class="nav02" id="notice"><a href="http://kpi3-test.ntalker.com/index.php/settingelse/notice?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=notice" class="leftNav" >通知</a></div>
+    <!--ticket-->
+            <div class="nav02"><a href="javascript:void(0);" class="leftNav" >营销设置</a>
+            <div class="icon_3_right icon_posi" ></div></div>
+        <ul class="s_left_m" id="quan_sale" style="display:none">
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrm/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=livecrm">优惠券</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrm/task?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=livecrm&saletype=1">促销活动</a></li>
+            <li ><a href="http://kpi3-test.ntalker.com/index.php/livecrmidear/index?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&disp=livecrm&token=5a0b1a6d6215136d4d415d4d8cef378f">展示方案</a></li>
+        </ul>
+</div>
+<script  type="text/javascript">
+
+
+    $('.nav02').click(
+            function() {
+                var tip = $(this).next();
+                if (tip.attr('class') == 's_left_m') {
+                    $(this).next().toggle();
+                    status = tip.css('display');
+                    if (status == 'none') {
+                        $(this).find('.icon_posi').removeClass('icon01').addClass('icon_3_right');
+                    } else {
+                        $(this).find('.icon_posi').removeClass('icon_3_right').addClass('icon01');
+                    }
+                }
+            }
+    );
+    $('li').click(
+            function() {
+                window.location.href = $(this).children().attr('href');
+            }
+    );
+</script>
+<script>
+	function groupHide(obj){
+		var tobj=$(obj).parent().parent().next().find('.zhgl_table2');
+		if($(obj).attr('className')=='div_down'){
+			tobj.css('display','none');
+			$(obj).attr('className','div_up');
+		}else if($(obj).attr('className')=='div_up'){
+			tobj.css('display','');
+			$(obj).attr('className','div_down');
+		}
+	}
+	
+	function searchName(){
+		var searched=$('.input_zhgl').val().trim();
+		var thisName='';
+		var txt='';
+		if(searched=='查找帐户' || searched==''){
+			$('#search_div').empty();
+			$('#search_div').css('display','none');
+			$('td[name=td_name]').css('color','#757E79');
+			$('td[name=td_nickname]').css('color','#757E79');
+			return;
+		}
+		var all_tds=$('td[name=td_name]');
+		var all_ready_match=0;
+		if(all_tds.length>0){
+			for(var i=0,len=all_tds.length;i<len;i++){
+				if(all_ready_match>=20)
+					break;
+				thisName=all_tds.eq(i).html();
+				thisName=thisName+'----'+all_tds.eq(i).next().html();
+				if(thisName.indexOf(searched)!=-1){
+					txt+="<div onclick='locateName("+i+","+all_tds.eq(i).attr('user_id')+");$(\".input_zhgl\").val(\""+thisName+"\")'>"+thisName+"</div>";
+					all_ready_match++;
+				}
+			}
+		}
+		$('#search_div').empty();
+		$('#search_div').append(txt);
+		$('#search_div').css('display','block');
+	}
+	function locateName(i,user_id){
+		$('.div_up').each(function(){groupHide(this);});
+		$('td[name=td_name]').css('color','#757E79');
+		$('td[name=td_nickname]').css('color','#757E79');
+		var jobj=$('td[name=td_name]').eq(i);
+		jobj.css('color','#FF0000');
+		jobj.next().css('color','#FF0000');
+		$('#search_div').css('display','none');
+		location.href='#tr_'+user_id;
+
+	}
+//--------10:13 2014/11/11---------
+var ROOTPATH = 'http://kpi3-test.ntalker.com';
+var usrid = 'kf_1111_ISME9754_T2D_ntalker_lizhipeng';
+var token = '5a0b1a6d6215136d4d415d4d8cef378f';
+
+	function showEditGroup(gid,gname){
+		$('#addoredit_title').html('编辑分组');
+		$('#groupname').val(gname);
+		$('#editOrAddGroup').val('2');
+		$('#editid').val(gid);
+		$('#div_addgroup').css('display','block');
+	}
+	function showAddGroup(){
+		$('#addoredit_title').html('新建分组');
+		$('#editOrAddGroup').val('1');
+		$('#div_addgroup').css('display','block');
+        popup($("#div_addgroup"));
+        
+	}
+	function addOrEditGroup(siteid,userid,token){
+		var groupname=$.trim($('#groupname').val());
+		if(groupname.length>16){
+            $('#float_logo').show();
+            $('#tip_err').html('分组名称不能超过16个字');            
+			return;
+		}
+		var flag=$('#editOrAddGroup').val();
+		groupname=encodeURIComponent(groupname);
+		if(flag=='1'){
+			var url=ROOTPATH+'/index.php/settingelse/add_group?userid='+userid+"&token="+token;
+            var postdata={"groupname":groupname};
+		}else if(flag=='2'){
+			var gid=$('#editid').val();
+			var url=ROOTPATH+'/index.php/settingelse/edit_group?userid='+userid+"&token="+token+"&groupname="+groupname+"&gid="+gid;
+		}
+		$.post(url,postdata,
+            function(result){
+                	if(result=='1'){
+                		window.location.reload();
+                	}
+                }
+        );
+	}
+	function delGroup(gid,siteid,userid,token,act){
+		if(act=='check'){
+			var url=ROOTPATH+'/index.php/settingelse/del_group?userid='+userid+"&token="+token;
+            var postdata={"act":'check',"gid":gid};
+			$.post(url,postdata,
+                function(result){
+                	if(result=='-1'){
+                		$('#del_msg').html('提示');
+                		$('#div_can .div_cont').html('请您先删除该组下面的所有成员。');
+						$('#delButton').val('关闭');
+						$('#button_cancle').css('display','none');
+						$('#delButton').get(0).onclick=function(){ $('#div_can').css('display','none') };
+						$('#div_can').css('display','block');
+                	}else if(result=='1'){
+						$('#del_msg').html('提示');
+						$('#div_can .div_cont').html('您确认要删除该组?');
+						$('#delButton').val('确定');
+						$('#delButton').get(0).onclick=function(){delGroup(gid,siteid,userid,token,'do')};
+						$('#div_can').css('display','block');
+					}
+                    popup($("#div_can"));
+				}
+        	);
+		}else if(act=='do'){
+			var url=ROOTPATH+'/index.php/settingelse/del_group?userid='+userid+"&token="+token;
+            var postdata={"act":'do',"gid":gid};
+            $.post(url,postdata,
+                function(result){
+                	if(result=='1'){
+                		location.reload();
+					}
+				}
+        	);
+		}
+		return;
+	} 
+	function deleteUser(userid,adminid,siteid){
+	    $('#del_msg').html('提示');
+	    $('.div_cont').html('您确认要删除该用户?');
+		$('#button_cancle').css('display','');
+		$('#delButton').val('确定');
+		$('#delButton').get(0).onclick=function(){delUser(userid,adminid,siteid)};
+		$('#div_can').css('display','block');
+	} 
+	function delUser(userid,adminid,siteid){
+		var url=ROOTPATH+'/index.php/settingelse/del_account?token='+token+"&userid="+adminid;
+        var postdata = {'uid':userid};
+        $.post(url,postdata,
+            function(data){
+                if(data==1){
+                    $('#div_can').hide();
+                    window.location.reload();
+                }
+            
+            }
+        );
+	} 
+	function show_active(id,userid){
+		$('#div_can2').css('display','block');
+		$('#active_button').get(0).onclick=function(){setActive(id,userid)};
+        popup($("#div_can2"));
+	}
+	function setActive(id,userid){
+	    $.ajax({
+                url:ROOTPATH+'/index.php/settingelse/set_active?id='+id+"&userid="+userid,
+                type:'GET',
+                datatype:"html",
+                data:null,
+                beforeSend:function(){ 
+                					$('#div_can2').css('display','none'); 
+                					},
+                success:function(result){
+                	if(result!='-3' && result!='-2' && result!='-1'){
+                		var insert=$('#span_'+id).html();
+						if(insert=='禁用'){
+							$('#span_'+id).html('启用');
+                            window.location.reload();
+						}else if(insert=='启用'){
+							$('#span_'+id).html('禁用');
+                            window.location.reload();
+						}
+                	}
+                }
+        });
+	} 
+//弹出层居中
+function popup(popupName){
+	var _scrollHeight = $(document).scrollTop(),//获取当前窗口距离页面顶部高度
+	_windowHeight = $(window).height(),//获取当前窗口高度
+	_windowWidth = $(window).width(),//获取当前窗口宽度
+	_popupHeight = popupName.height(),//获取弹出层高度
+	_popupWeight = popupName.width();//获取弹出层宽度
+	_posiTop = (_windowHeight - _popupHeight)/2 + _scrollHeight;
+	_posiLeft = (_windowWidth - _popupWeight)/2;
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position
+}    
+</script>
+<script src="http://kpi3-test.ntalker.com/application/static/setting/js/keyBord.js" type="text/javascript"></script>
+<!--右侧-->
+<div class="s_righ_cont s_righ_conts">
+<table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+  <tr>
+    <td width="10%" height="40" align="left" ><input type="submit" name="button3" id="button3" class="but" value="创建分组" onclick="showAddGroup()" /></td>
+    <td width="10%" align="left"><input type="submit" name="button4" id="button4" class="but" value="创建帐户" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&type=add&disp=account'"/></td>
+    <td width="35%" align="left" class="f_gray"  >共有7个分组，总计41个帐户.</td>
+    <td width="45%" align="right"><input type="text" id="search" title="account" class="selectedMenuSeach f_r ma_t10" value="查找帐户" onfocus="if(this.value=='查找帐户'){this.value='';}" onblur="if(this.value==''){this.value='查找帐户';}"/></td>
+  </tr>
+  </table>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">客户服务部（21人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('4189','客户服务部')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('4189','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">liusi_kf</div></li>
+          <li class="l2 t_c"><div name="content">liusi_kf(liusi_kf)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69484&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_kf','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69484,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69484">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">kf02</div></li>
+          <li class="l2 t_c"><div name="content">客服02(kf02)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58744&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_客服02','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(58744,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_58744">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">kf03</div></li>
+          <li class="l2 t_c"><div name="content">客服03(kf03)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58745&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_客服03','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(58745,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_58745">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">zhangsan</div></li>
+          <li class="l2 t_c"><div name="content">张三(张三)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69508&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_zhangsan','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69508,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69508">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">sale</div></li>
+          <li class="l2 t_c"><div name="content">普通客服(普通客服)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69570&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_sale','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69570,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69570">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi100</div></li>
+          <li class="l2 t_c"><div name="content">测试(测试)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69626&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi100','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69626,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69626">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_zj</div></li>
+          <li class="l2 t_c"><div name="content">liusi_zj(liusi_zj)</div></li>
+          <li class="l7">质检员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69482&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_zj','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69482,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69482">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_zj2</div></li>
+          <li class="l2 t_c"><div name="content">liusi_zj2(liusi_zj2)</div></li>
+          <li class="l7">质检员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69485&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_zj2','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69485,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69485">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ralf</div></li>
+          <li class="l2 t_c"><div name="content">ralf(ralf)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69443&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ralf','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">zhengguoqing</div></li>
+          <li class="l2 t_c"><div name="content">zgq(zgq)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69444&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_zhengguoqing','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_admin</div></li>
+          <li class="l2 t_c"><div name="content">liusi_admin(liusi_admin)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69451&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_admin','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">huawei</div></li>
+          <li class="l2 t_c"><div name="content">huawei(huawei)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69473&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_huawei','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi</div></li>
+          <li class="l2 t_c"><div name="content">ceshi(ceshi)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69490&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ntalker_steven</div></li>
+          <li class="l2 t_c"><div name="content">ntalker_steven(ntalker_steven)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58739&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ntalker_steven','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ntalker_lizhipeng</div></li>
+          <li class="l2 t_c"><div name="content">ntalker_lizhipeng(ntalker_lizhipeng)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58740&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">winmin</div></li>
+          <li class="l2 t_c"><div name="content">winmin(winmin)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69493&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_winmin','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ntalker_maliqun</div></li>
+          <li class="l2 t_c"><div name="content">ntalker_maliqun(ntalker_maliqun)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58741&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ntalker_maliqun','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ntalker_ralf</div></li>
+          <li class="l2 t_c"><div name="content">ntalker_ralf(ntalker_ralf)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58742&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ntalker_ralf','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">kf01</div></li>
+          <li class="l2 t_c"><div name="content">客服01(kf01)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=58743&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_客服01','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_admin2</div></li>
+          <li class="l2 t_c"><div name="content">liusi_admin2(liusi_admin2)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69510&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_admin2','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">pzx_admin</div></li>
+          <li class="l2 t_c"><div name="content">pzx_admin(pzx_admin)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69575&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_pzx_admin','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">市场部（3人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11051','市场部')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11051','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">scbxiaoshou</div></li>
+          <li class="l2 t_c"><div name="content">scbxiaoshou(scbxiaoshou)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69446&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_scbxiaoshou','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69446,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69446">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">scbzuzhang</div></li>
+          <li class="l2 t_c"><div name="content">scbzuzhang(scbzuzhang)</div></li>
+          <li class="l7">组长</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69445&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_scbzuzhang','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69445,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69445">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ershixiong</div></li>
+          <li class="l2 t_c"><div name="content">二师兄(二师兄)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69676&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ershixiong','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">销售一部（3人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11052','销售一部')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11052','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">xsybxiaoshou</div></li>
+          <li class="l2 t_c"><div name="content">xsybxiaoshou(xsybxiaoshou)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69448&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xsybxiaoshou','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69448,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69448">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">xsybzuzhang</div></li>
+          <li class="l2 t_c"><div name="content">xsybzuzhang(xsybzuzhang)</div></li>
+          <li class="l7">组长</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69447&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xsybzuzhang','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69447,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69447">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_gl</div></li>
+          <li class="l2 t_c"><div name="content">liusi_gl(liusi_gl)</div></li>
+          <li class="l7">组长</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69481&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_gl','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69481,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69481">禁用</a>          </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">销售二部（3人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11053','销售二部')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11053','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">xsebxiaoshou</div></li>
+          <li class="l2 t_c"><div name="content">xsebxiaoshou(xsebxiaoshou)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69450&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xsebxiaoshou','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69450,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69450">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">liusi_kf2</div></li>
+          <li class="l2 t_c"><div name="content">liusi_kf2(liusi_kf2)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69486&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_liusi_kf2','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69486,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69486">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">xsebzuzhang</div></li>
+          <li class="l2 t_c"><div name="content">xsebzuzhang(xsebzuzhang)</div></li>
+          <li class="l7">组长</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69449&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xsebzuzhang','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69449,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69449">禁用</a>          </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">测试部（9人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11054','测试部')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11054','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">xiaoneng3</div></li>
+          <li class="l2 t_c"><div name="content">客服测试账号(客服测试账号)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69452&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xiaoneng3','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69452,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69452">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">xiaoneng2</div></li>
+          <li class="l2 t_c"><div name="content">组长测试账号(组长测试账号)</div></li>
+          <li class="l7">组长</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69453&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xiaoneng2','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69453,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69453">禁用</a>          </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">xiaoneng1</div></li>
+          <li class="l2 t_c"><div name="content">管理员测试账号(管理员测试账号)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69454&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xiaoneng1','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi000</div></li>
+          <li class="l2 t_c"><div name="content">ceshi000(ceshi000)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69828&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi000','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi001</div></li>
+          <li class="l2 t_c"><div name="content">ceshi001(ceshi001)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69829&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi001','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">zsmwl0012312</div></li>
+          <li class="l2 t_c"><div name="content">zsmwl0012312(zsmwl0012312)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69831&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_zsmwl0012312','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi01</div></li>
+          <li class="l2 t_c"><div name="content">ceshi01(ceshi01)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69832&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi01','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">ceshi011</div></li>
+          <li class="l2 t_c"><div name="content">ceshi011(ceshi011)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69833&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi011','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+          
+       <li class="zhgl">
+         <ul>
+          <li class="l3"><div name="content">xiaonengceshi000</div></li>
+          <li class="l2 t_c"><div name="content">小能测试000(小能测试000)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69834&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xiaonengceshi000','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">测试组2 销售（1人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11062','测试组2 销售')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11062','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">xiaoneng4</div></li>
+          <li class="l2 t_c"><div name="content">测试2销售小能4(测试2销售)</div></li>
+          <li class="l7">客服</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69625&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_xiaoneng4','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+          <a href="javascript:void(0);" onclick="show_active(69625,'kf_1111_ISME9754_T2D_ntalker_lizhipeng')" class="f_blue" id="span_69625">禁用</a>          </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+<div class="zj zj_zhgl  ul">
+  <ul>
+      <li class="bg ">
+         <ul>
+          <li class="l3">测试分组2（1人）</li>
+          <li class="l2"></li>
+          <li class="l7"></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="showEditGroup('11119','测试分组2')" class="f_blue">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="delGroup('11119','kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f','check')" class="f_blue">删除</a></li>
+          <li class="l0"></li>
+         </ul>
+      </li>
+            <li class="zhgl0">
+         <ul>
+          <li class="l3">用户名</li>
+          <li class="l2 t_c">内部名(外部名)</li>
+          <li class="l7">角色</li>
+          <li class="l15">操作</li>
+         </ul>
+      </li>  
+          
+       <li class="zhgl0">
+         <ul>
+          <li class="l3"><div name="content">ceshi1</div></li>
+          <li class="l2 t_c"><div name="content">ceshi1(ceshi1)</div></li>
+          <li class="l7">管理员</li>
+          <li class="l0"><a class="f_blue" href="javascript:void(0)" onclick="location.href='http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&id=69632&type=edit&disp=account'">编辑</a></li>
+          <li class="l0"><a href="javascript:void(0)" onclick="deleteUser('kf_1111_ISME9754_T2D_ceshi1','kf_1111_ISME9754_T2D_ntalker_lizhipeng','kf_1111')" class="f_blue">删除</a></li>
+
+          <li class="l0">
+                    </li>
+          
+         </ul>
+      </li>
+      </ul>    
+</div>
+
+</div>
+
+<!--咨询类型 添加新部门的弹出框-->
+<div class="gjym_float_div" id='div_addgroup' style="display:none;width:325px;height:150px;z-index:108;border:1px solid #909090;">
+  <div class="div_top">
+         <div id='addoredit_title' class="f_l">新建分组</div><div class="f_r"><div onclick="$('#div_addgroup').css('display','none')" class=" icon_close"></div></div>
+  </div>
+  <div class="div_cont" >部门名称：
+    <input name="groupname" id="groupname" type="text" class=" input300" style="width:180px;padding:0;" value=""/>
+		<input type='hidden' name='editOrAddGroup' id='editOrAddGroup' value='1' />
+		<input type='hidden' name='editid' id='editid' value='1' />    
+  &nbsp;</div>
+  <div class="div_cont2"><input type="button" value="确 定"  class="but ma_r10"  onclick="addOrEditGroup('kf_1111','kf_1111_ISME9754_T2D_ntalker_lizhipeng','5a0b1a6d6215136d4d415d4d8cef378f')"/>           <input name="cancel" type="submit" value="取  消"  class="but ma_l10" onclick="$('#div_addgroup').css('display','none')"/></div>
+</div>  
+  
+<!--删除帐户或者分组的弹出框-->  
+<div class="gjym_float_div" id='div_can' style="display:none;width:325px;height:150px;z-index:1004;border:1px solid #909090;">
+  <div class="div_top">
+         <div id='del_msg' class="f_l">新建分组</div><div class="f_r"><div onclick="$('#div_can').css('display','none')" class=" icon_close"></div></div>
+  </div>
+  <div class="div_cont" id="tip_err" style="margin-top:10px;text-align:center;margin-left:0;">错误提示</div>
+  <div class="div_cont2">
+  <input type="button" value="确 定"  id='delButton' class="but ma_r10"  /> 
+  <input name="cancel" type="button" id='button_cancle' value="取  消"  class="but ma_l10" onclick="$('#div_can').css('display','none')"/></div>
+</div>
+
+<!--禁用帐户的弹出框-->
+<div class="gjym_float_div" id='div_can2' style="display:none;width:325px;height:150px;z-index:1004;border:1px solid #909090;">
+  <div class="div_top">
+         <div id='del_msg' class="f_l">你确定要继续该项操作么？</div><div class="f_r"><div onclick="$('#div_can2').css('display','none')" class=" icon_close"></div></div>
+  </div>
+  <div class="div_cont2" style="margin-top:45px;">
+  <input type="button" value="确 定"  id='active_button' class="but ma_r10"  /> 
+  <input name="cancel" type="button" id='cancel' value="取  消"  class="but ma_l10" onclick="$('#div_can2').css('display','none')"/></div>
+</div>
+
+<!--错误提示--弹出层-->
+<div class="gjym_float_div" style="display:none;z-index:1004;border:1px solid #909090;" id="float_logo">
+  <div class="div_top">
+         <div class="f_l">提示</div><div class="f_r"><div class=" icon_close" onclick="$('#float_logo').css('display','none')"></div></div>
+  </div>
+  <div class="div_cont" id="tip_err" style="margin-top:10px;text-align:center;margin-left:0;">错误提示</div>
+  <div class="div_cont2"><input name="sure" type="button" value="确  定"  class="but ma_l10" onclick="$('#float_logo').css('display','none')"/></div>
+</div></body>
+</html>

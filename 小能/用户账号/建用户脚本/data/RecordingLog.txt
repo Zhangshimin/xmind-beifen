@@ -1,0 +1,278 @@
+[Network Analyzer (4a00:4d5c)] ------------------------------------------------------------------------------------------
+[Network Analyzer (4a00:4d5c)] Load Network Traffic Analyzers:
+[Network Analyzer (4a00:4d5c)]     Analyzer Module: WPLUS (value=)
+[Network Analyzer (4a00:4d5c)]     Analyzer Module: WebBase (value=GetHttpProtocolAnalyzer:api_http_filter.dll)
+[Network Analyzer (4a00:4d5c)]     + Network Analyzer: api_http_filter.dll @ GetHttpProtocolAnalyzer Loaded!
+[Network Analyzer (4a00:4d5c)]     + Interception Auditors: WinInetWplusInterceptionAudit:api_http_filter.dll
+[Network Analyzer (4a00:4d5c)]     Analyzer Module: QTWeb (value=)
+[Network Analyzer (4a00:4d5c)]     Analyzer Module: local_server (value=)
+[Network Analyzer (4a00:4d5c)] ------------------------------------------------------------------------------------------
+[Network Analyzer (4a00:2654)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:4e9c)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:4e9c)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  1)  PROXIED!
+[Network Analyzer (4a00:4f94)] Address lookup for masterconn.qq.com = 125.39.57.101
+[Network Analyzer (4a00:4f94)] Address lookup for masterconn2.qq.com = 180.153.163.212
+[Web Request      (4a00:2654)] "GET /index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account&rnd=1458810998920"   
+[Network Analyzer (4a00:2654)]   (Sid:  1) Client -> Server : 577 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  1) Server -> Client : 1669 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  1) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  1) Server -> Client : 6680 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/css/style_index.css"   
+[Network Analyzer (4a00:2654)]   (Sid:  1) Client -> Server : 1568 bytes (Service=HTTP)
+[Network Analyzer (4a00:4e9c)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid:  1) Connection Terminated (by Client)
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:27a8)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:1dd0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:4d40)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00: d34)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00: 6f0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:248c)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:21ec)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:4e9c)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  2)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  2) Connection Terminated (by Client)
+[Network Analyzer (4a00:1dd0)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  3)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  3) Connection Terminated (by Client)
+[Network Analyzer (4a00:27a8)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  4)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  4) Connection Terminated (by Client)
+[Network Analyzer (4a00:4d40)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  5)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  5) Connection Terminated (by Client)
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  6)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  6) Connection Terminated (by Client)
+[Network Analyzer (4a00:248c)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  7)  PROXIED!
+[Web Request      (4a00:2654)] "GET /application/static/default/css/common.css"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1563 bytes (Service=HTTP)
+[Network Analyzer (4a00: 6f0)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  8)  PROXIED!
+[Web Request      (4a00:2654)] "GET /application/static/setting/css/style_index.css"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1568 bytes (Service=HTTP)
+[Network Analyzer (4a00: d34)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid=  9)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1662 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/js/jquery.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1561 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 13140 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 12370 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 13140 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 13140 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16060 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 12816 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 14276 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 13952 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 8760 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 3980 bytes  (Service=HTTP)
+[Network Analyzer (4a00:21ec)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 10)  PROXIED!
+[Web Request      (4a00:2654)] "GET /application/static/default/js/My97DatePicker/WdatePicker.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1581 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 4380 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 4924 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/default/js/My97DatePicker/skin/WdatePicker.css"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1587 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/default/js/deCommon.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1563 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 463 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 14012 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/t_bj_38.jpg"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1567 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 8760 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 3289 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/dot.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1563 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/bg.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1562 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 715 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 8760 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16060 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 8322 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/js/keyBord.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1562 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 4380 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 7300 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 6684 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/zcs.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1563 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 1370 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /favicon.ico"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1313 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/bj.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1562 bytes (Service=HTTP)
+[Network Analyzer (4a00: d34)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 13140 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 824 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 2596 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 2596 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 7198 bytes  (Service=HTTP)
+[Network Analyzer (4a00: d34)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 11)  PROXIED!
+[Network Analyzer (4a00:1818)]   (Sid: 10) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:1818)]   (Sid: 10) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/jq.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1562 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 1350 bytes  (Service=HTTP)
+[Network Analyzer (4a00:4d84)]   (Sid: 11) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4d84)]   (Sid: 11) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Web Request      (4a00:2654)] "GET /index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&type=add&disp=account"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1654 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2096 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Web Request      (4a00:2654)] "GET /application/static/setting/up/js/swfobject.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1551 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 79 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 4355 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/up/css/upload.css"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1550 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/js/enterprise_usage.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1555 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 625 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 4380 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 975 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/head.jpg"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1548 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/up/js/upload.js"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1548 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/dnormal.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  9) Client -> Server : 1551 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 2920 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 8760 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 6978 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 2096 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  9) Server -> Client : 3264 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /favicon.ico"   
+[Network Analyzer (4a00:2654)]   (Sid:  8) Client -> Server : 1313 bytes (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/tm.png"   
+[Network Analyzer (4a00:2654)]   (Sid:  7) Client -> Server : 1546 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Server -> Client : 1348 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 12)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  8) Server -> Client : 824 bytes  (Service=HTTP)
+[Network Analyzer (4a00: 6f0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:248c)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:248c)] Request Connection: Remote Server @ 104.118.92.86:80   (Service=)  (Sid= 13)  PROXIED!
+[Web Request      (4a00:2654)] "GET /pub/shockwave/cabs/flash/swflash.cab"   
+[Network Analyzer (4a00:2654)]   (Sid: 13) Client -> Server : 506 bytes (Service=HTTP)
+[Network Analyzer (4a00: 6f0)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 14)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 13) Server -> Client : 217 bytes  (Service=HTTP)
+[Network Analyzer (4a00:1dd0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:248c)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2354)]   (Sid: 12) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:2354)]   (Sid: 12) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:248c)] Request Connection: Remote Server @ 65.200.22.99:80   (Service=)  (Sid= 15)  PROXIED!
+[Web Request      (4a00:2654)] "GET /pub/shockwave/cabs/flash/swflash.cab"   
+[Network Analyzer (4a00:2654)]   (Sid: 15) Client -> Server : 507 bytes (Service=HTTP)
+[Network Analyzer (4a00:1dd0)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 16)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 12492 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 16384 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 12168 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 4380 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 5840 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 14600 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Server -> Client : 5728 bytes  (Service=HTTP)
+[Network Analyzer (4a00:36e4)]   (Sid: 14) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:36e4)]   (Sid: 14) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4b58)]   (Sid: 16) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4b58)]   (Sid: 16) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:21ec)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid: 10) Connection Terminated (by Client)
+[Network Analyzer (4a00:2654)]   (Sid: 11) Connection Terminated (by Client)
+[Network Analyzer (4a00: d34)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid: 14) Connection Terminated (by Client)
+[Network Analyzer (4a00: 6f0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid: 12) Connection Terminated (by Client)
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00: d34)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 17)  PROXIED!
+[Network Analyzer (4a00: 6f0)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 18)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 16) Connection Terminated (by Client)
+[Network Analyzer (4a00:1dd0)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 19)  PROXIED!
+[Network Analyzer (4a00:1dd0)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 20)  PROXIED!
+[Network Analyzer (4a00:23a8)]   (Sid: 17) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:23a8)]   (Sid: 17) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:27a8)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2654)]   (Sid:  9) Connection Terminated (by Server)
+[Network Analyzer (4a00:27a8)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 21)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid:  8) Connection Terminated (by Server)
+[Network Analyzer (4a00:2654)]   (Sid:  7) Connection Terminated (by Server)
+[Network Analyzer (4a00:2654)]   (Sid: 17) Connection Terminated (by Client)
+[Network Analyzer (4a00:4e40)]   (Sid: 18) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4e40)]   (Sid: 18) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:21ec)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 22)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 18) Connection Terminated (by Client)
+[Network Analyzer (4a00:4cb4)]   (Sid: 19) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4cb4)]   (Sid: 19) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4968)]   (Sid: 20) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4968)]   (Sid: 20) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:2654)]   (Sid: 19) Connection Terminated (by Client)
+[Network Analyzer (4a00:2654)]   (Sid: 20) Connection Terminated (by Client)
+[Network Analyzer (4a00: f30)]   (Sid: 21) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00: f30)]   (Sid: 21) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:27a8)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:27a8)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 23)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 21) Connection Terminated (by Client)
+[Network Analyzer (4a00:4ddc)]   (Sid: 22) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4ddc)]   (Sid: 22) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00: a74)]   (Sid: 23) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00: a74)]   (Sid: 23) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:2654)]   (Sid: 22) Connection Terminated (by Client)
+[Network Analyzer (4a00:2654)]   (Sid: 23) Connection Terminated (by Client)
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid= 24)  PROXIED!
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Web Request      (4a00:2654)] "GET /application/static/setting/images/djg.png"   
+[Network Analyzer (4a00:2654)]   (Sid: 24) Client -> Server : 1547 bytes (Service=HTTP)
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 113.31.89.234:80   (Service=)  (Sid= 25)  PROXIED!
+[Network Analyzer (4a00:2654)]   (Sid: 24) Server -> Client : 1460 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 24) Server -> Client : 1872 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "POST /index.php/settingelse/add_account?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f"   
+[Network Analyzer (4a00:2654)]   (Sid: 25) Client -> Server : 2187 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 25) Server -> Client : 2128 bytes  (Service=HTTP)
+[Web Request      (4a00:2654)] "GET /index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account"   
+[Network Analyzer (4a00:2654)]   (Sid: 24) Client -> Server : 1652 bytes (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 24) Server -> Client : 7936 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2654)]   (Sid: 24) Server -> Client : 2334 bytes  (Service=HTTP)
+[Network Analyzer (4a00:2324)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:27a8)] Address lookup for dell-PC = 192.168.30.133
+[Network Analyzer (4a00:2324)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 26)  PROXIED!
+[Network Analyzer (4a00:27a8)] Request Connection: Remote Server @ 134.170.50.249:443   (Service=)  (Sid= 27)  PROXIED!
+[Network Analyzer (4a00:4bc0)]   (Sid: 26) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4bc0)]   (Sid: 26) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4f58)]   (Sid: 27) Negotiate Proxy -> Server SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:4f58)]   (Sid: 27) Negotiate Client -> Proxy SSL Handshake (ssl:TLSv1, ciphers:AES128-SHA)
+[Network Analyzer (4a00:2654)]   (Sid: 15) Connection Terminated (by Client)

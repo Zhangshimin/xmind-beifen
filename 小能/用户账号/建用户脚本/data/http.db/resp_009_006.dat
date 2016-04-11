@@ -1,0 +1,744 @@
+//添加常用语
+
+//编辑分组
+function editGroup(gid,gname){
+    var gname = encodeURIComponent(gname);
+	
+	//window.location.href = ROOTPATH+'/index.php/enterprise/edit_group_usage?userid='+userid+'&token='+token+'&gid=' + gid + "&gname=" + gname +'&disp=enterprise';
+	window.location.href = ROOTPATH+'/index.php/enterprise/edit_group_usage?userid='+userid+'&token='+token+'&gid=' + gid +'&disp=enterprise';
+}
+//删除分组
+function delg(gid){
+    var searchUrl = ROOTPATH+'/index.php/enterprise/delete_group_usage?userid='+ userid + '&token=' + token;
+    var postdata = "delgid=" + gid;
+    jQuery.post(searchUrl,postdata,
+        function(data,status){
+            if(status=='success'){
+                if(data.result==1){
+					window.location = ROOTPATH+'/index.php/enterprise/enterprise_usage?userid='+userid+'&token='+token+'&disp=enterprise';
+                }else{
+                    //删除分组失败
+                    $('#pop').css('display','');
+                    $('#pop').css('display','');
+                    $('#pop .div_cont').html('删除分组失败');
+                    $('#pop input[id="no"]').css('display','none');
+                    delgid = -1;
+                }                
+            }
+        }
+    );
+}
+function cancelg(gid){
+    $('#pop').css('display','none');
+    delgid = -1;
+}
+function delGroup(gid){
+	if(typeof(gid) == 'undefined') return;
+	if(delgid == -1){
+        $('#pop').css('display','');
+        $('#yes').get(0).onclick=function(){delg(gid)}
+        popup($("#pop"));
+    }
+}
+//分组上移
+function GroupUp(gid){
+	var curObj = jQuery('#gr_'+gid);
+	var upClass = curObj.attr('class');
+	var _tmp,downClass;
+    var tbid = curObj.prev().attr('id');
+	//当前节点是否为第一个分组
+    if(curObj.prev() && ('tableid' != tbid)){
+	    _tmp = tbid.split('_');
+	    upClass = jQuery('#gu_'+ _tmp[1]).attr('class');
+    	SwapGroup(curObj.prev(),curObj);
+    }else{
+    	return;
+    }
+}
+//交换分组位置
+function SwapGroup(node1,node2){
+	if(node1 && node2) {
+		
+		var tmp2 = node2.attr('id').split('_');
+		var _tmp2 = tmp2[1];
+		var tmp1 = node1.attr('id').split('_');
+		var _tmp1 = tmp1[1];
+		var tmp = jQuery('#grn_'+_tmp2).val();
+		var _tmp = jQuery('#grn_'+_tmp1).val();
+        
+        var node1loc = node1.children('input').attr('loc');
+        var node2loc = node2.children('input').attr('loc');        
+        //排序,node1向下，node2向上
+        if(node1loc=='none'&&node2loc=='last'){
+            node1.children('input').attr('loc','last');
+            node1.children('.grcyy_title').children().children(':nth-child(3)').children().children().removeClass('pos').addClass('posno');
+           
+            node2.children('input').attr('loc','none');
+            node2.children('.grcyy_title').children().children(':nth-child(3)').children().children().removeClass('posno').addClass('pos');
+        }else if(node1loc=='first'&&node2loc=='none'){
+            node1.children('input').attr('loc','none');
+            node1.children('.grcyy_title').children().children(':nth-child(4)').children().children().removeClass('pono').addClass('po');
+
+            node2.children('input').attr('loc','first');
+            node2.children('.grcyy_title').children().children(':nth-child(4)').children().children().removeClass('po').addClass('pono');
+        }else if(node1loc=='first'&&node2loc=='last'){
+            node1.children('input').attr('loc','last');
+            node1.children('.grcyy_title').children().children(':nth-child(3)').children().children().removeClass('pos').addClass('posno');            
+            node1.children('.grcyy_title').children().children(':nth-child(4)').children().children().removeClass('pono').addClass('po');
+
+            node2.children('input').attr('loc','first');
+            node2.children('.grcyy_title').children().children(':nth-child(3)').children().children().removeClass('posno').addClass('pos');
+            node2.children('.grcyy_title').children().children(':nth-child(4)').children().children().removeClass('po').addClass('pono');
+        }        
+		jQuery('#grn_'+_tmp2).val(_tmp);
+		jQuery('#grn_'+_tmp1).val(tmp);
+        jQuery(node2).insertBefore(node1);
+		GroupGrank(_tmp1,_tmp2,tmp,_tmp);
+	}
+}  
+//交换分组数据库操作
+function GroupGrank(id1,id2,grank1,grank2){
+    var searchUrl = ROOTPATH + '/index.php/enterprise/group_grank?userid='+userid+'&token='+token;
+    var postdata = "&id1=" + id1 + "&id2=" + id2 + "&grank1=" + grank1 + "&grank2=" + grank2;
+    jQuery.post(searchUrl,postdata,
+        function(data,status){
+            if(status=='success'&& data.result==1){
+                //alert(data.error);
+                //window.location = ROOTPATH + '/index.php/enterprise/enterprise_usage?userid='+userid+'&token='+token+'&disp=enterprise';
+            }
+        }
+    );
+}
+//分组下移
+function GroupDown(gid){
+	var curObj = jQuery('#gr_'+gid);
+    //当前节点是否为第一个分组
+    var downClass = curObj.attr('class');
+    //当前节点的后一条记录是否最后一条记录
+    var _tmp,downClass;
+    if(curObj.next()){
+        _tmp = curObj.next().attr('id').split('_');
+        downClass = jQuery('#gd_'+ _tmp[1]).attr('class');
+    	SwapGroup(curObj,curObj.next());
+    }else{
+    	return;
+    }
+} 
+//编辑常用语
+function editItem(cyytype,gid,id){
+		if(cyytype=='create'){
+			if(typeof(gid) == 'undefined') return;
+			var postdata = '&gid='+ gid;
+		}else{
+			if(typeof(gid) == 'undefined' || typeof(id) == 'undefined') return;
+			var response = jQuery("#fr_"+id).children('a').html();
+			var rs = response.split('】');
+			var title = rs[0].split('【')[1];
+			if(typeof(title)=='undefined'){
+				title = '';
+				response = rs;
+			}else{
+				response = rs[1];
+			}
+			var postdata = '&gid='+ gid + '&id=' + id;
+		}
+        var searchUrl = ROOTPATH + '/index.php/enterprise/edit_item_usage?userid='+userid+'&token='+token +postdata+'&disp=enterprise';
+        //window.location = searchUrl;
+		$.ajax({
+			url: searchUrl,
+			type: 'post',
+			datatype: "html",
+			data: null,
+			success: function(data) {
+				var data = eval('(' + data + ')');
+				$("#edit_title").val(data.title);
+				$("#edit_text").val(data.response);
+				$("#option_html").html(data.option_html);
+				$("#option_html").html(data.option_html);
+				remLen.value = edit_text.value.length;
+				addEvent(addInput);
+				id_show("edit_tcc");
+				if(cyytype=='create'){
+					$("#usage_save").bind("click",function(){
+						setGroup("create",gid);
+					}); 
+				}else{
+					$("#usage_save").bind("click",function(){
+						setGroup("save",data.id);
+					}); 
+				}
+				
+
+			}
+		});
+	
+}
+       
+function addInput(e)
+{
+    var obj = e.target ? e.target : e.srcElement;
+    var tags = document.getElementsByTagName('textarea');
+    for(var i=0;i<tags.length;i++)
+    {
+        if(tags[i].getAttribute('url') == 'true'&&tags[i]!=obj)
+        {
+            tags[i].value = obj.value;
+        }
+    }
+}
+function addInput_input(e)
+{
+    var obj = e.target ? e.target : e.srcElement;
+    var tags = document.getElementsByTagName('input');
+    for(var i=0;i<tags.length;i++)
+    {
+        if(tags[i].getAttribute('url') == 'true'&&tags[i]!=obj)
+        {
+            tags[i].value = obj.value;
+        }
+    }
+}
+function addEvent(eventHandler)
+    {
+        var tags = document.getElementsByTagName('textarea');
+        for(var i=0;i<tags.length;i++)
+        {
+            if(tags[i].getAttribute('url') == 'true')
+            {
+                if(tags[i].addEventListener)
+                {
+                    tags[i].addEventListener('keyup',eventHandler,true);
+                }
+                else
+                {
+                    tags[i].attachEvent('onkeyup',eventHandler);
+                }
+            }
+        }
+}
+function addEvent_input(eventHandler)
+    {
+        var tags = document.getElementsByTagName('input');
+        for(var i=0;i<tags.length;i++)
+        {
+            if(tags[i].getAttribute('url') == 'true')
+            {
+                if(tags[i].addEventListener)
+                {
+                    tags[i].addEventListener('keyup',eventHandler,true);
+                }
+                else
+                {
+                    tags[i].attachEvent('onkeyup',eventHandler);
+                }
+            }
+        }
+}
+//删除常用语
+function delItem(id){
+	if(typeof(id) == 'undefined') return;   
+	var searchUrl = ROOTPATH + '/index.php/enterprise/delete_item_usage?userid='+userid+'&token='+token;
+	var postdata = {"delid": id};
+    jQuery.post(searchUrl,postdata,
+        function(data,status){
+            if(data.result==1 && status=='success'){
+                window.location = ROOTPATH + '/index.php/enterprise/enterprise_usage?userid='+userid+'&token='+token+'&disp=enterprise';
+            }else{
+                //alert(data.error);
+                $('#float_logo').show();
+                $('#tip_err').html(data.error);                
+            }
+        }
+    );
+}
+//上移分组常用语
+function MoveUp(id){
+	if(typeof(id) == 'undefined') return;
+    var curObj = jQuery('#msg_'+id);
+    //当前节点是否为最后一条记录
+    var tmp = curObj.attr('id').split('_');
+    var downClass = jQuery('#md_'+ tmp[1]).attr('class');
+    //当前节点是否为第一条记录
+    var _tmp,upClass;
+    if(curObj.attr('id')!=curObj.parent().children().first().attr('id')){
+	    //当前节点的前一条记录是否为第一条记录
+	    _tmp = curObj.prev().attr('id').split('_');
+	    upClass = jQuery('#mu_'+ _tmp[1]).attr('class');
+    	SwapNode(curObj.prev(),curObj);
+    }else{
+    	return;
+    }
+}
+//下移分组常用语
+function MoveDown(id){
+    if(typeof(id) == 'undefined') return;
+    var curObj = jQuery('#msg_'+id);
+	    //var curObj = obj.parentNode.parentNode;
+	//当前节点是否为第一条记录
+	var tmp = curObj.attr('id').split('_');
+	var upClass = jQuery('#mu_'+ tmp[1]).attr('class');
+	//当前节点的后一条记录是否最后一条记录
+	var _tmp,downClass;
+	if(curObj.attr('id')!=curObj.parent().children().last().attr('id')){
+	    _tmp = curObj.next().attr('id').split('_');
+	    downClass = jQuery('#md_'+ _tmp[1]).attr('class');
+    	SwapNode(curObj,curObj.next());
+	}else{
+	   	return;
+	}
+}
+//交换分组常用语
+function SwapNode(node1,node2){
+	if(node1 && node2) {
+		var tmp2 = node2.attr('id').split('_');
+		var _tmp2 = tmp2[1];
+		var tmp1 = node1.attr('id').split('_');
+		var _tmp1 = tmp1[1];
+		var tmp = jQuery('#gk_'+_tmp2).val();
+        
+        var node1loc = node1.children('input').attr('loc');
+        var node2loc = node2.children('input').attr('loc');
+        //排序,node1向下，node2向上
+        if(node1loc=='none'&&node2loc=='last'){
+            node1.children('input').attr('loc','last');
+            node1.children('li').css('border','none');
+            node1.children('li').children('.cnt_5').children().children().removeClass('pos').addClass('posno');
+            node2.children('input').attr('loc','none');
+            node2.children('li').css('border-bottom','1px dashed #d4d4d4');
+            node2.children('li').children('.cnt_5').children().children().removeClass('posno').addClass('pos');            
+        }else if(node1loc=='first'&&node2loc=='none'){
+            node1.children('input').attr('loc','none');
+            node1.children('li').children('.cnt_4').children().children().removeClass('pono').addClass('po');
+            node2.children('input').attr('loc','first');
+            node2.children('li').children('.cnt_4').children().children().removeClass('po').addClass('pono');
+        }else if(node1loc=='first'&&node2loc=='last'){
+            node1.children('input').attr('loc','last');
+            node1.children('li').css('border','none');
+            node1.children('li').children('.cnt_4').children().children().removeClass('pono').addClass('po');
+            node1.children('li').children('.cnt_5').children().children().removeClass('pos').addClass('posno');
+            node2.children('input').attr('loc','first');
+            node2.children('li').css('border-bottom','1px dashed #d4d4d4');
+            node2.children('li').children('.cnt_4').children().children().removeClass('po').addClass('pono');
+            node2.children('li').children('.cnt_5').children().children().removeClass('posno').addClass('pos');            
+        }        
+		jQuery('#gk_'+_tmp2).val(jQuery('#gk_'+_tmp1).val());
+		jQuery('#gk_'+_tmp1).val(tmp);
+        jQuery(node2).insertBefore(node1);
+		ChangeGrank(_tmp1,_tmp2,tmp,jQuery('#gk_'+_tmp2).val());
+	}
+}
+//交换分组常用语排序编号
+function ChangeGrank(id1,id2,grank1,grank2){
+	var searchUrl = ROOTPATH + '/index.php/enterprise/change_grank?userid='+userid+'&token='+token;
+	var postdata= {"id1" : id1, "id2": id2,"grank1": grank1, "grank2": grank2};
+	
+    jQuery.post(searchUrl,postdata,
+        function(data,status){
+            if(data.result==1 && status=='success'){
+                //window.location = ROOTPATH + '/index.php/enterprise/enterprise_usage?userid='+userid+'&token='+token + postdata+'&disp=enterprise';;
+            }else{
+                //alert(data.error);
+                $('#float_logo').show();
+                $('#tip_err').html(data.error);                 
+            }
+        }
+    );
+}
+function htmlSpecical_decode(str){
+    var temp = document.createElement("div");
+    temp.innerHTML = str;
+    var output = temp.innerText || temp.textContent;temp = null;
+    return output;
+}
+//分组的展开与收缩
+function icon_toggle(num,id,obj){
+    var icon=$('#'+id).children('.grcyy_cont');
+    icon.toggle();
+    if(num==1){
+        var handle = $(obj);
+    }else{
+        var handle = $(obj).prev().children();
+    }
+    var cls = handle.attr('class');
+    if(cls=='icon_bot'){
+        handle.removeClass('icon_bot').addClass('icon_right');
+    }else{
+       handle.removeClass('icon_right').addClass('icon_bot');
+    }  
+}
+//定位显示tips
+function showTips(event,tips){  
+    x=event.clientX;  
+    y=event.clientY;  
+    $('#divTips').html(tips);
+    $('#divTips').css('left',x);  
+    $('#divTips').css('top',y);  
+    $('#divTips').show();;  
+}  
+function hiddenTips(){
+    document.getElementById("divTips").style.display="none";  
+}
+//弹出层居中
+function popup(popupName){
+	var _scrollHeight = $(document).scrollTop(),//获取当前窗口距离页面顶部高度
+	_windowHeight = $(window).height(),//获取当前窗口高度
+	_windowWidth = $(window).width(),//获取当前窗口宽度
+	_popupHeight = popupName.height(),//获取弹出层高度
+	_popupWeight = popupName.width();//获取弹出层宽度
+	_posiTop = (_windowHeight - _popupHeight)/2 + _scrollHeight-100;
+	_posiLeft = (_windowWidth - _popupWeight)/2 -200;
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position
+}
+/**
+*	点击浏览相当于点击input:file
+*/
+function clickInputFile(){
+	$('#scan').trigger('click');
+}
+
+/**
+*	获取input:file文件名，并判断是否合法，目前只支持.csv文件
+*/
+function getFileName(){
+	$('#filename').val('');
+	var filename = $('#scan').val();
+	if (filename.indexOf('.csv') > -1||filename.indexOf('.xls') > -1) {
+		$('#filename').val(filename);
+	} else {
+		$('#scan').val('');
+		$('#filename').val('非法文件类型！');
+	}
+}
+/**
+*	导入客户数据
+*/
+function loadCrm(){
+	var url = ROOTPATH+'/index.php/enterprise/importUseful?userid='+userid+'&token='+token;
+	var scan_val = $('#filename').val();
+	if (scan_val == '') {
+		
+	} else if (scan_val == '非法文件类型！') {
+		
+	} else {
+		$('#loadCsv').ajaxSubmit({
+			url:url,
+			type: 'POST',
+			success: function(data) {
+                if(data.result==1){
+					//alert('上传成功');
+					id_hide("daoru_tcc");
+					$("#error_i").text(data.error_i);
+					id_show("error_tcc");
+				}else{
+					//alert('上传失败');
+					id_hide("daoru_tcc");
+					$("#error_i").text(data.error_i);
+					id_show("error_tcc");
+				}
+            }
+		});
+	}
+}
+function id_hide(id){
+	$("#"+id).hide();
+}
+function id_show(id){
+	$("#"+id).show();
+}
+
+//保存常用话术编辑
+function setGroup(type,id) {
+	//当前组id
+    var curGid = $("#option_html").val();
+	if (type == "save") {
+		//当前常用话术id
+		var curid = id;
+		//检查常用话术名称
+		var tis = isLimititle();
+		if(!tis) return;
+		//内容
+		if($.trim($('#edit_text').val())==''){
+			$('#errmsg2').attr('class','f_red');
+			$('#errmsg2').html('&nbsp;&nbsp;常用话术保存时不能为空。');
+			setTimeout(function(){$('#errmsg2').attr('class','f_gray');$('#errmsg2').html('&nbsp;&nbsp;不能超过500个汉字');},3000);  
+			return;
+		}
+		var str = {'gid': curGid, 'id' : curid, 'type' : type};
+		var msginfo = $.trim($('#edit_text').val());
+		if(msginfo != ""){
+			$.extend(str,{"response": encodeURIComponent(msginfo)});
+			var tis = isLimititle2();
+			if(!tis) return;            
+		}
+		var title = $.trim($("#edit_title").val());
+		if(title){
+			$.extend(str,{"title": encodeURIComponent('【'+title+'】')});		
+		}
+	} else {
+		var tis = isLimititle();
+		if(!tis) return;
+		//内容
+		if($.trim($('#edit_text').val())==''){
+			$('#errmsg2').attr('class','f_red');
+			$('#errmsg2').html('&nbsp;&nbsp;常用话术保存时不能为空。');
+			setTimeout(function(){$('#errmsg2').attr('class','f_gray');$('#errmsg2').html('&nbsp;&nbsp;不能超过500个汉字');},3000);  
+			return;
+		}
+		var str = {'gid': curGid, 'type' : type};
+		var msginfo = $.trim($('#edit_text').val());
+		if(msginfo != ""){
+			$.extend(str,{"response": encodeURIComponent(msginfo)});
+			var tis = isLimititle2();
+			if(!tis) return;            
+		}
+		var title = $.trim($("#edit_title").val());
+		if(title){
+			$.extend(str,{"title": encodeURIComponent('【'+title+'】')});		
+		}
+	}
+	var searchUrl = ROOTPATH + '/index.php/enterprise/edit_item_usage_save?userid=' + userid + '&token=' + token;
+	var postdata = str;
+		$.ajax({
+			url: searchUrl,
+			type: 'post',
+			datatype: "html",
+			data: postdata,
+			success: function(data) {
+				if (data.result == '1') {
+					window.location = ROOTPATH + '/index.php/enterprise/enterprise_usage?userid=' + userid + '&token=' + token;
+					id_hide("edit_tcc");
+				}
+			}
+		});
+}
+
+
+
+//判断内容是否超过规定长度
+    function isLimititle() {
+		//组名字长度限制
+    var titleLength = 24;
+        //处理群组名称
+        var txt = $.trim($("#title").val());
+        var len = getStrLength(txt) - (txt.split("\n").length-1);          
+        if (txt && len >titleLength) {
+            $("#errmsg").attr('class','f_red');
+            setTimeout(function(){$("#errmsg").attr('class','f_gray');},3000);
+            return false;    
+        }else{
+            return true;
+        }        
+    }
+//判断内容是否超过规定长度
+    function isLimititle2() {
+		//文字长度限制
+    var limLength = 300;
+        //处理群组名称
+        var txt = $.trim($("#msginfo").val());
+        var len = getStrLength(txt) - (txt.split("\n").length-1);        
+        if (txt && len >limLength) {
+            $("#errmsg2").attr('class','f_red');
+            setTimeout(function(){$("#errmsg2").attr('class','f_gray');},3000);
+            return false;    
+        }else{
+            return true;
+        }
+    }
+	function textCounter(field, countfield, maxlimit) {  
+		 if (field.value.length > maxlimit){
+			field.value = field.value.substring(0, maxlimit);  
+		 }else{
+			countfield.value = field.value.length; 
+		 }
+		 if(field.name=='no_reply'){
+			$("#no_reply").css("border","1px solid #d4d4d4");
+		 }
+		 if(field.name=='welcome'){
+			$("#welcome").css("border","1px solid #d4d4d4");
+		 }
+	}
+	function textCounter_input(field, countfield, maxlimit) {
+		 if ($("#"+field).val().length > maxlimit){  
+		  $('#'+field).attr("value",$('#'+field).val().substring(0, maxlimit));
+		 }else{  
+			$('#'+countfield).attr("value",$('#'+field).val().length);
+		 }
+	}
+	function logo_upload(){
+    $('#info').css('display','');
+} 
+//显示图片
+function overupload(url){
+    $('#icon').attr('src',url);
+    $('#usericon').val(url);
+}
+function authority(){
+    $('#input_div_list').toggle();
+    $('#input_div_list2').hide();
+    $('#input_div_list3').hide();
+    $('#div_deal').hide();
+}
+function group(){
+    $('#input_div_list2').toggle();
+    $('#input_div_list').hide();
+    $('#input_div_list3').hide();
+    $('#div_deal').hide();    
+}
+function receptions(){
+    $('#input_div_list3').toggle();
+    $('#input_div_list2').hide();
+    $('#input_div_list').hide();
+    $('#div_deal').hide();
+}
+function liuyan(){
+    if($('#current_pri').html()=="管理员"){
+        $('#current_deal').html('全部');
+        return;
+    }    
+    $('#div_deal').toggle();
+    $('#input_div_list3').hide();
+    $('#input_div_list2').hide();
+    $('#input_div_list').hide();
+}
+function is_robot(type){
+	if(type==0){
+		$(".robot_class").show();
+		$(".robot_icon").hide();
+	}else{
+		$('#remLen').attr("value",$('#no_reply').val().length);
+		$('#remLen1').attr("value",$('#welcome').val().length);
+		if($("#userForm input[name='is_robot_welcome']").filter(':checked').val()==true){
+			$("#robot_welcome").show();
+		}else{
+			$("#robot_welcome").hide();
+		}
+		$(".robot_class").hide();
+		$(".robot_icon").show();
+	}
+}
+function choosePri(role){
+		$('#pri').val(role);
+		var pri_arr=new Array();
+		pri_arr['admin']='管理员';
+		pri_arr['inspector']='质检员';
+		pri_arr['sale']='销售';
+		pri_arr['groupleader']='组长';
+		$('#current_pri').html(pri_arr[role]);
+		$('#input_div_list').hide();
+        $('#current_deal').html('全部');
+		if(role=='admin'){
+			$('#dealkfid').val('all');
+			$('#deal_tip').html('&nbsp;管理员可以查看所有的留言');
+            $('#current_deal').get(0).onclick=function(){return false;}
+		}else{
+			$('#dealkfid').val('all');
+			$('#deal_tip').html('&nbsp;请选择留言所属客服的分组');
+            $('#current_deal').get(0).onclick=function(){liuyan();}
+		}
+	}
+	function chooseGroup(k,groupname){
+		$('#current_group').html(groupname);
+		$('#current_group').get(0).onmouseover=function(event){showTips(event,groupname);};
+		$('#gid').val(k);
+	}
+	function checkChi(target,e){
+        e=window.event||e;
+        if(e.keyCode == 46 || e.keyCode == 8 || e.keyCode == 35 || e.keyCode == 36 || (e.keyCode >= 37 && e.keyCode <= 40)){
+			return;
+        }
+        if(/[^x00-xff]/.test(target.value))
+            target.value=target.value.replace(/[\u4E00-\u9FA5\uFF00-\uFFFF]/g, '');
+    }
+	function d(type){
+		var tipid='#'+type+'_tip';
+		$(tipid).attr('class','');
+		switch(type){
+			case "accountName":
+				if($('#accountName').attr('disabled')==false){
+					$(tipid).html('不能为中文，最多24个字符');
+				}
+				break;
+			case "nickName":
+				$(tipid).html('最多16个汉字');
+				break;
+			case "externalName":
+				$(tipid).html('最多16个汉字');
+				break;
+			case "pass":
+				$(tipid).html('由6-20个英文字母/数字或特殊字符组成');
+				break;
+			case "pass2":
+				$(tipid).html('请再次输入密码');
+				break;
+			case "phonename":
+				$(tipid).html('请输入电话用户名');
+				break;
+			case "phonepass":
+				$(tipid).html('请输入电话用户密码');
+				break;
+			case "mobile":
+				$(tipid).html('请输入接收留言通知的手机号码');
+				break;
+			case "email":
+				$(tipid).html('请输入接收留言通知的Email地址');
+				break;
+			case "hand_day_num":
+          $(tipid).html('请输入每日新增上限数量');
+      break;
+      case "hand_all_num":
+          $(tipid).html('请输入工单总上限数量');
+          break;
+      case "fenji_num":
+          $(tipid).html('请输入分机号码(必须是4位数且以8开头)');
+          break;
+      default:
+				break;
+		}
+	}
+	function verifyNum(val){
+		var reg = /^\d{1,3}$/;
+		if(!reg.exec(val)){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	function chooseDeal(id,name){
+		$('#current_deal').html(name);
+		$('#dealkfid').val(id);
+		$('#div_deal').css('display','none');
+        if($('#current_pri').html()=="管理员"){
+            $('#current_deal').html('全部');
+            $('#div_deal').css('display','none');
+        }        
+	}
+	function chooseRep(num){
+		$('#maxreception').val(num);
+		$('#current_rep').html(num);
+	} 
+	function checkLength(str,maxLen){
+		var iLength = 0;
+		for(var i = 0;i<str.length;i++){
+			if(str.charCodeAt(i) >255){
+				iLength += 2;
+			}else{
+				iLength += 1;
+			}
+		}
+		if(iLength>maxLen)
+			return false;
+		else
+			return true;  
+	} 
+	//定位显示tips
+	function showTips(event,tips){  
+		x=event.clientX;  
+		y=event.clientY;  
+		$('#divTips').html(tips);
+		$('#divTips').css('left',x);  
+		$('#divTips').css('top',y);  
+		$('#divTips').show();;  
+	}  
+	function hiddenTips(){  
+		document.getElementById("divTips").style.display="none";  
+	}

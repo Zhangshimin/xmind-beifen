@@ -1,0 +1,13 @@
+POST /index.php/settingelse/add_account?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+Referer: http://kpi3-test.ntalker.com/index.php/settingelse/add_or_edit?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&type=add&disp=account
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Shuame)
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-cn
+Accept: */*
+Connection: Keep-Alive
+Host: kpi3-test.ntalker.com
+Cookie: ci_session=a%3A14%3A%7Bs%3A10%3A%22session_id%22%3Bs%3A32%3A%222591212a274dc8e32ac393248ff60cd6%22%3Bs%3A10%3A%22ip_address%22%3Bs%3A15%3A%22123.125.196.146%22%3Bs%3A10%3A%22user_agent%22%3Bs%3A120%3A%22Mozilla%2F4.0+%28compatible%3B+MSIE+8.0%3B+Windows+NT+6.1%3B+WOW64%3B+Trident%2F4.0%3B+SLCC2%3B+.NET+CLR+2.0.50727%3B+.NET+CLR+3.5.30729%3B+.N%22%3Bs%3A13%3A%22last_activity%22%3Bi%3A1458873670%3Bs%3A9%3A%22user_data%22%3Bs%3A0%3A%22%22%3Bs%3A5%3A%22token%22%3Bs%3A32%3A%225a0b1a6d6215136d4d415d4d8cef378f%22%3Bs%3A6%3A%22userid%22%3Bs%3A38%3A%22kf_1111_ISME9754_T2D_ntalker_lizhipeng%22%3Bs%3A4%3A%22role%22%3Bs%3A5%3A%22admin%22%3Bs%3A6%3A%22roleid%22%3Bi%3A2%3Bs%3A3%3A%22gid%22%3Bs%3A4%3A%224189%22%3Bs%3A6%3A%22siteID%22%3Bs%3A7%3A%22kf_1111%22%3Bs%3A8%3A%22kpi_bind%22%3Bi%3A0%3Bs%3A8%3A%22versions%22%3Bs%3A1%3A%221%22%3Bs%3A11%3A%22site_status%22%3Bi%3A1%3B%7D0697ee46e28345699b768de83a4ba24f
+Content-Length: 355
+

@@ -1,0 +1,267 @@
+
+
+
+//页内查找 18:18 2015/2/3
+      $(function(){
+        $('#search').keydown(function (e) {
+            var key = e.which;
+            if (key == 13) highlight();
+        })
+        var name = $('#search').attr('title'); 
+        if(name=="account"){
+            var cls = '.s_righ_cont';
+            var sch = 'div[name="content"]';
+        }else if(name=="webim"){
+            var cls = '.grcyy';
+            var sch = 'div[name="content"]';
+        }else if(name=="consult"){
+            var cls = '.table_s1';
+            var sch = 'p[name="content"]';
+        }
+        var i = 0;
+        var sCurText;
+        function highlight(){
+            clearSelection();//先清空一下上次高亮显示的内容；             
+            var flag = 0;
+            var bStart = true;
+
+            var searchText = $('#search').val();
+            var _searchTop = $('#search').offset().top+30;
+            var _searchLeft = $('#search').offset().left;
+            if($.trim(searchText)==""){
+                showTips("请输入查找的内容",_searchTop,3,_searchLeft);
+                return;
+            }
+                 
+            var searchText = $('#search').val();//获取你输入的关键字；
+            var regExp = new RegExp(searchText, 'g');//创建正则表达式，g表示全局的，如果不用g，则查找到第一个就不会继续向下查找了；
+            var content = $(cls).text();
+            if (!regExp.test(content)) {
+                showTips("没有找到要查找的名称",_searchTop,3,_searchLeft);
+                return;
+            } else {
+                if (sCurText != searchText) {
+                    i = 0;
+                    sCurText = searchText;
+                 }
+             }
+             
+            $(sch).each(function(){
+                var html = $(this).html();
+                var newHtml = html.replace(regExp, '<span class="highlight">'+searchText+'</span>');//将找到的关键字替换，加上highlight属性；
+                $(this).html(newHtml);//更新；
+            });
+             
+        }
+        function clearSelection(){
+            $(sch).each(function(){
+                //找到所有highlight属性的元素；
+                $(this).find('.highlight').each(function(){
+                    $(this).replaceWith($(this).html());//将他们的属性去掉；
+                });
+            });
+        }
+         
+        //mask
+        var tipsDiv = '<div class="tipsClass"></div>';
+        $( 'body' ).append( tipsDiv );
+        function showTips( tips, height, time,left ){
+            var windowWidth = document.documentElement.clientWidth;
+            $('.tipsClass').text(tips);
+            $( 'div.tipsClass' ).css({
+            'top' : height + 'px',
+            'left' :left + 'px',
+            'position' : 'absolute',
+            'padding' : '8px 6px',
+            'background': '#000000',
+            'font-size' : 14 + 'px',
+            'font-weight': 900,
+            'margin' : '0 auto',
+            'text-align': 'center',
+            'width' : 'auto',
+            'color' : '#fff',
+            'z-index' : 20000,
+            'border-radius':'2px',
+            'opacity' : '0.8' ,
+            'box-shadow':'0px 0px 10px #000',
+            '-moz-box-shadow':'0px 0px 10px #000',
+            '-webkit-box-shadow':'0px 0px 10px #000'
+            }).show();
+            setTimeout( function(){$( 'div.tipsClass' ).fadeOut();}, ( time * 1000 ) );
+        }
+      });
+//聊天设置--热键 11:47 2015/2/4
+function hotkeyset(id){
+                $.hotkeys.add('esc',function (){$('#'+id).val('Esc');});
+                $.hotkeys.add('Ctrl+a',function (){$('#'+id).val('Ctrl+A');});
+                $.hotkeys.add('Ctrl+b',function (){$('#'+id).val('Ctrl+B');});
+                $.hotkeys.add('Ctrl+c',function (){$('#'+id).val('Ctrl+C');});
+                $.hotkeys.add('Ctrl+d',function (){$('#'+id).val('Ctrl+D');});
+                $.hotkeys.add('Ctrl+e',function (){$('#'+id).val('Ctrl+E');});
+                $.hotkeys.add('Ctrl+f',function (){$('#'+id).val('Ctrl+F');});
+                $.hotkeys.add('Ctrl+g',function (){$('#'+id).val('Ctrl+G');});
+                $.hotkeys.add('Ctrl+h',function (){$('#'+id).val('Ctrl+H');});
+                $.hotkeys.add('Ctrl+i',function (){$('#'+id).val('Ctrl+I');});
+                $.hotkeys.add('Ctrl+j',function (){$('#'+id).val('Ctrl+J');});
+                $.hotkeys.add('Ctrl+k',function (){$('#'+id).val('Ctrl+K');});
+                $.hotkeys.add('Ctrl+l',function (){$('#'+id).val('Ctrl+L');});
+                $.hotkeys.add('Ctrl+m',function (){$('#'+id).val('Ctrl+M');});
+                $.hotkeys.add('Ctrl+n',function (){$('#'+id).val('Ctrl+N');});
+                $.hotkeys.add('Ctrl+o',function (){$('#'+id).val('Ctrl+O');});
+                $.hotkeys.add('Ctrl+p',function (){$('#'+id).val('Ctrl+P');});
+                $.hotkeys.add('Ctrl+q',function (){$('#'+id).val('Ctrl+Q');});
+                $.hotkeys.add('Ctrl+r',function (){$('#'+id).val('Ctrl+R');});
+                $.hotkeys.add('Ctrl+s',function (){$('#'+id).val('Ctrl+S');});
+                $.hotkeys.add('Ctrl+t',function (){$('#'+id).val('Ctrl+T');});
+                $.hotkeys.add('Ctrl+u',function (){$('#'+id).val('Ctrl+U');});
+                $.hotkeys.add('Ctrl+v',function (){$('#'+id).val('Ctrl+V');});
+                $.hotkeys.add('Ctrl+w',function (){$('#'+id).val('Ctrl+W');});
+                $.hotkeys.add('Ctrl+x',function (){$('#'+id).val('Ctrl+X');});
+                $.hotkeys.add('Ctrl+y',function (){$('#'+id).val('Ctrl+Y');});
+                $.hotkeys.add('Ctrl+z',function (){$('#'+id).val('Ctrl+Z');});
+                $.hotkeys.add('Shift+a',function (){$('#'+id).val('Shift+A');});
+                $.hotkeys.add('Shift+b',function (){$('#'+id).val('Shift+B');});
+                $.hotkeys.add('Shift+c',function (){$('#'+id).val('Shift+C');});
+                $.hotkeys.add('Shift+d',function (){$('#'+id).val('Shift+D');});
+                $.hotkeys.add('Shift+e',function (){$('#'+id).val('Shift+E');});
+                $.hotkeys.add('Shift+f',function (){$('#'+id).val('Shift+F');});
+                $.hotkeys.add('Shift+g',function (){$('#'+id).val('Shift+G');});
+                $.hotkeys.add('Shift+h',function (){$('#'+id).val('Shift+H');});
+                $.hotkeys.add('Shift+i',function (){$('#'+id).val('Shift+I');});
+                $.hotkeys.add('Shift+j',function (){$('#'+id).val('Shift+J');});
+                $.hotkeys.add('Shift+k',function (){$('#'+id).val('Shift+K');});
+                $.hotkeys.add('Shift+l',function (){$('#'+id).val('Shift+L');});
+                $.hotkeys.add('Shift+m',function (){$('#'+id).val('Shift+M');});
+                $.hotkeys.add('Shift+n',function (){$('#'+id).val('Shift+N');});
+                $.hotkeys.add('Shift+o',function (){$('#'+id).val('Shift+O');});
+                $.hotkeys.add('Shift+p',function (){$('#'+id).val('Shift+P');});
+                $.hotkeys.add('Shift+q',function (){$('#'+id).val('Shift+Q');});
+                $.hotkeys.add('Shift+r',function (){$('#'+id).val('Shift+R');});
+                $.hotkeys.add('Shift+s',function (){$('#'+id).val('Shift+S');});
+                $.hotkeys.add('Shift+t',function (){$('#'+id).val('Shift+T');});
+                $.hotkeys.add('Shift+u',function (){$('#'+id).val('Shift+U');});
+                $.hotkeys.add('Shift+v',function (){$('#'+id).val('Shift+V');});
+                $.hotkeys.add('Shift+w',function (){$('#'+id).val('Shift+W');});
+                $.hotkeys.add('Shift+x',function (){$('#'+id).val('Shift+X');});
+                $.hotkeys.add('Shift+y',function (){$('#'+id).val('Shift+Y');});
+                $.hotkeys.add('Shift+z',function (){$('#'+id).val('Shift+Z');});
+                $.hotkeys.add('Alt+a',function (){$('#'+id).val('Alt+A');});
+                $.hotkeys.add('Alt+b',function (){$('#'+id).val('Alt+B');});
+                $.hotkeys.add('Alt+c',function (){$('#'+id).val('Alt+C');});
+                $.hotkeys.add('Alt+d',function (){$('#'+id).val('Alt+D');});
+                $.hotkeys.add('Alt+e',function (){$('#'+id).val('Alt+E');});
+                $.hotkeys.add('Alt+f',function (){$('#'+id).val('Alt+F');});
+                $.hotkeys.add('Alt+g',function (){$('#'+id).val('Alt+G');});
+                $.hotkeys.add('Alt+h',function (){$('#'+id).val('Alt+H');});
+                $.hotkeys.add('Alt+i',function (){$('#'+id).val('Alt+I');});
+                $.hotkeys.add('Alt+j',function (){$('#'+id).val('Alt+J');});
+                $.hotkeys.add('Alt+k',function (){$('#'+id).val('Alt+K');});
+                $.hotkeys.add('Alt+l',function (){$('#'+id).val('Alt+L');});
+                $.hotkeys.add('Alt+m',function (){$('#'+id).val('Alt+M');});
+                $.hotkeys.add('Alt+n',function (){$('#'+id).val('Alt+N');});
+                $.hotkeys.add('Alt+o',function (){$('#'+id).val('Alt+O');});
+                $.hotkeys.add('Alt+p',function (){$('#'+id).val('Alt+P');});
+                $.hotkeys.add('Alt+q',function (){$('#'+id).val('Alt+Q');});
+                $.hotkeys.add('Alt+r',function (){$('#'+id).val('Alt+R');});
+                $.hotkeys.add('Alt+s',function (){$('#'+id).val('Alt+S');});
+                $.hotkeys.add('Alt+t',function (){$('#'+id).val('Alt+T');});
+                $.hotkeys.add('Alt+u',function (){$('#'+id).val('Alt+U');});
+                $.hotkeys.add('Alt+v',function (){$('#'+id).val('Alt+V');});
+                $.hotkeys.add('Alt+w',function (){$('#'+id).val('Alt+W');});
+                $.hotkeys.add('Alt+x',function (){$('#'+id).val('Alt+X');});
+                $.hotkeys.add('Alt+y',function (){$('#'+id).val('Alt+Y');});
+                $.hotkeys.add('Alt+z',function (){$('#'+id).val('Alt+Z');});
+                $.hotkeys.add('Ctrl+esc', function (){$('#'+id).val('Ctrl+Esc');});
+                $.hotkeys.add('Ctrl+tab', function (){$('#'+id).val('Ctrl+Tab');});
+                $.hotkeys.add('Ctrl+space', function (){$('#'+id).val('Ctrl+Space');});
+                $.hotkeys.add('Ctrl+return', function (){$('#'+id).val('Ctrl+Return');});
+                $.hotkeys.add('Ctrl+backspace', function (){$('#'+id).val('Ctrl+Backspace');});
+                $.hotkeys.add('Ctrl+scroll', function (){$('#'+id).val('Ctrl+Scroll');});
+                $.hotkeys.add('Ctrl+capslock', function (){$('#'+id).val('Ctrl+Capslock');});
+                $.hotkeys.add('Ctrl+numlock', function (){$('#'+id).val('Ctrl+Numlock');});
+                $.hotkeys.add('Ctrl+pause', function (){$('#'+id).val('Ctrl+Pause');});
+                $.hotkeys.add('Ctrl+insert', function (){$('#'+id).val('Ctrl+Insert');});
+                $.hotkeys.add('Ctrl+home', function (){$('#'+id).val('Ctrl+Home');});
+                $.hotkeys.add('Ctrl+del', function (){$('#'+id).val('Ctrl+Del');});
+                $.hotkeys.add('Ctrl+end', function (){$('#'+id).val('Ctrl+End');});
+                $.hotkeys.add('Ctrl+pageup', function (){$('#'+id).val('Ctrl+Pageup');});
+                $.hotkeys.add('Ctrl+pagedown', function (){$('#'+id).val('Ctrl+Pagedown');});
+                $.hotkeys.add('Ctrl+left', function (){$('#'+id).val('Ctrl+Left');});
+                $.hotkeys.add('Ctrl+up', function (){$('#'+id).val('Ctrl+Up');});
+                $.hotkeys.add('Ctrl+right', function (){$('#'+id).val('Ctrl+Right');});
+                $.hotkeys.add('Ctrl+down', function (){$('#'+id).val('Ctrl+Down');});
+                $.hotkeys.add('Ctrl+f1', function (){$('#'+id).val('Ctrl+F1');});
+                $.hotkeys.add('Ctrl+f2', function (){$('#'+id).val('Ctrl+F2');});
+                $.hotkeys.add('Ctrl+f3', function (){$('#'+id).val('Ctrl+F3');});
+                $.hotkeys.add('Ctrl+f4', function (){$('#'+id).val('Ctrl+F4');});
+                $.hotkeys.add('Ctrl+f5', function (){$('#'+id).val('Ctrl+F5');});
+                $.hotkeys.add('Ctrl+f6', function (){$('#'+id).val('Ctrl+f6');});
+                $.hotkeys.add('Ctrl+f7', function (){$('#'+id).val('Ctrl+F7');});
+                $.hotkeys.add('Ctrl+f8', function (){$('#'+id).val('Ctrl+F8');});
+                $.hotkeys.add('Ctrl+f9', function (){$('#'+id).val('Ctrl+F9');});
+                $.hotkeys.add('Ctrl+f10', function (){$('#'+id).val('Ctrl+F10');});
+                $.hotkeys.add('Ctrl+f11', function (){$('#'+id).val('Ctrl+F11');});
+                $.hotkeys.add('Ctrl+f12', function (){$('#'+id).val('Ctrl+F12');});
+                $.hotkeys.add('Shift+esc', function (){$('#'+id).val('Shift+Esc');});
+                $.hotkeys.add('Shift+tab', function (){$('#'+id).val('Shift+Tab');});
+                $.hotkeys.add('Shift+space', function (){$('#'+id).val('Shift+Space');});
+                $.hotkeys.add('Shift+return', function (){$('#'+id).val('Shift+Return');});
+                $.hotkeys.add('Shift+backspace', function (){$('#'+id).val('Shift+Backspace');});
+                $.hotkeys.add('Shift+scroll', function (){$('#'+id).val('Shift+Scroll');});
+                $.hotkeys.add('Shift+capslock', function (){$('#'+id).val('Shift+Capslock');});
+                $.hotkeys.add('Shift+numlock', function (){$('#'+id).val('Shift+Numlock');});
+                $.hotkeys.add('Shift+pause', function (){$('#'+id).val('Shift+Pause');});
+                $.hotkeys.add('Shift+insert', function (){$('#'+id).val('Shift+Insert');});
+                $.hotkeys.add('Shift+home', function (){$('#'+id).val('Shift+Home');});
+                $.hotkeys.add('Shift+del', function (){$('#'+id).val('Shift+Del');});
+                $.hotkeys.add('Shift+end', function (){$('#'+id).val('Shift+End');});
+                $.hotkeys.add('Shift+pageup', function (){$('#'+id).val('Shift+Pageup');});
+                $.hotkeys.add('Shift+pagedown', function (){$('#'+id).val('Shift+Pagedown');});
+                $.hotkeys.add('Shift+left', function (){$('#'+id).val('Shift+Left');});
+                $.hotkeys.add('Shift+up', function (){$('#'+id).val('Shift+Up');});
+                $.hotkeys.add('Shift+right', function (){$('#'+id).val('Shift+Right');});
+                $.hotkeys.add('Shift+down', function (){$('#'+id).val('Shift+Down');});
+                $.hotkeys.add('Shift+f1', function (){$('#'+id).val('Shift+F1');});
+                $.hotkeys.add('Shift+f2', function (){$('#'+id).val('Shift+F2');});
+                $.hotkeys.add('Shift+f3', function (){$('#'+id).val('Shift+F3');});
+                $.hotkeys.add('Shift+f4', function (){$('#'+id).val('Shift+F4');});
+                $.hotkeys.add('Shift+f5', function (){$('#'+id).val('Shift+F5');});
+                $.hotkeys.add('Shift+f6', function (){$('#'+id).val('Shift+F6');});
+                $.hotkeys.add('Shift+f7', function (){$('#'+id).val('Shift+F7');});
+                $.hotkeys.add('Shift+f8', function (){$('#'+id).val('Shift+F8');});
+                $.hotkeys.add('Shift+f9', function (){$('#'+id).val('Shift+F9');});
+                $.hotkeys.add('Shift+f10', function (){$('#'+id).val('Shift+F10');});
+                $.hotkeys.add('Shift+f11', function (){$('#'+id).val('Shift+F11');});
+                $.hotkeys.add('Shift+f12', function (){$('#'+id).val('Shift+F12');});
+                $.hotkeys.add('Alt+esc', function (){$('#'+id).val('Alt+Esc');});
+                $.hotkeys.add('Alt+tab', function (){$('#'+id).val('Alt+Tab');});
+                $.hotkeys.add('Alt+space', function (){$('#'+id).val('Alt+Space');});
+                $.hotkeys.add('Alt+return', function (){$('#'+id).val('Alt+Return');});
+                $.hotkeys.add('Alt+backspace', function (){$('#'+id).val('Alt+Backspace');});
+                $.hotkeys.add('Alt+scroll', function (){$('#'+id).val('Alt+Scroll');});
+                $.hotkeys.add('Alt+capslock', function (){$('#'+id).val('Alt+Capslock');});
+                $.hotkeys.add('Alt+numlock', function (){$('#'+id).val('Alt+Numlock');});
+                $.hotkeys.add('Alt+pause', function (){$('#'+id).val('Alt+Pause');});
+                $.hotkeys.add('Alt+insert', function (){$('#'+id).val('Alt+Insert');});
+                $.hotkeys.add('Alt+home', function (){$('#'+id).val('Alt+Home');});
+                $.hotkeys.add('Alt+del', function (){$('#'+id).val('Alt+Del');});
+                $.hotkeys.add('Alt+end', function (){$('#'+id).val('Alt+End');});
+                $.hotkeys.add('Alt+pageup', function (){$('#'+id).val('Alt+Pageup');});
+                $.hotkeys.add('Alt+pagedown', function (){$('#'+id).val('Alt+Pagedown');});
+                $.hotkeys.add('Alt+left', function (){$('#'+id).val('Alt+Left');});
+                $.hotkeys.add('Alt+up', function (){$('#'+id).val('Alt+Up');});
+                $.hotkeys.add('Alt+right', function (){$('#'+id).val('Alt+Right');});
+                $.hotkeys.add('Alt+down', function (){$('#'+id).val('Alt+Down');});
+                $.hotkeys.add('Alt+f1', function (){$('#'+id).val('Alt+F1');});
+                $.hotkeys.add('Alt+f2', function (){$('#'+id).val('Alt+F2');});
+                $.hotkeys.add('Alt+f3', function (){$('#'+id).val('Alt+F3');});
+                $.hotkeys.add('Alt+f4', function (){$('#'+id).val('Alt+F4');});
+                $.hotkeys.add('Alt+f5', function (){$('#'+id).val('Alt+F5');});
+                $.hotkeys.add('Alt+f6', function (){$('#'+id).val('Alt+F6');});
+                $.hotkeys.add('Alt+f7', function (){$('#'+id).val('Alt+F7');});
+                $.hotkeys.add('Alt+f8', function (){$('#'+id).val('Alt+F8');});
+                $.hotkeys.add('Alt+f9', function (){$('#'+id).val('Alt+F9');});
+                $.hotkeys.add('Alt+f10', function (){$('#'+id).val('Alt+F10');});
+                $.hotkeys.add('Alt+f11', function (){$('#'+id).val('Alt+F11');});
+                $.hotkeys.add('Alt+f12', function (){$('#'+id).val('Alt+F12');});
+}

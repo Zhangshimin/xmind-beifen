@@ -1,0 +1,4 @@
+"usertype=0&pri=admin&gid=11054&accountName=xiaonengceshi020&user_id=&externalName=&nickName=&p"
+"ass={pass}&pass2={pass}&is_robot_welcome=0&welcome=&remLen1=&no_reply=&remLen=&maxreception=8&"
+"dealkfid=all&mobile=&email=&hand_day_num=5&hand_all_num=5&accountName=xiaonengceshi020&userico"
+"n=http://kpi3-test.ntalker.com/application/static/setting/images/head.jpg"

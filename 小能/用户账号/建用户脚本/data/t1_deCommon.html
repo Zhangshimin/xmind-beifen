@@ -1,0 +1,428 @@
+/*
+* 样式选择器 颜色
+*/
+function tableSort(jqTableObj) {
+    jqTableObj.find('thead th').click(
+        function(){
+            var dataType = $(this).attr('dataType');
+            if(dataType == 'nosort'){return false;}
+            var tableObj = $(this).closest('table');
+            var index = tableObj.find('thead th').index(this) + 1;
+            var arr = [];
+            var row = tableObj.find('tbody tr');
+            
+            $.each(row, function(i){arr[i] = row[i]});
+            
+            if($(this).hasClass('current')){
+                arr.reverse();
+            } else {
+                arr.sort(Utils.sortStr(index, dataType))
+                
+                tableObj.find('thead th').removeClass('current');
+                $(this).addClass('current');
+            }
+            
+            var fragment = document.createDocumentFragment();
+            
+            $.each(arr, function(i){
+                fragment.appendChild(arr[i]);
+            });
+            
+            tableObj.find('tbody').append(fragment);
+        }
+    );    
+    
+    var Utils = (function() {
+        function sortStr(index, dataType){
+            return function(a, b){
+                var aText=$(a).find('td:nth-child(' + index + ')').attr('_order') || $(a).find('td:nth-child(' + index + ')').text();
+                var bText=$(b).find('td:nth-child(' + index + ')').attr('_order') || $(b).find('td:nth-child(' + index + ')').text();
+        
+                if(dataType != 'text'){
+                    aText=parseNonText(aText, dataType);
+                    bText=parseNonText(bText, dataType);
+                    
+                    return aText > bText ? -1 : bText > aText ? 1 : 0;
+                } else {
+                    return aText.localeCompare(bText)
+                }
+            }
+        }
+        
+        function parseNonText(data, dataType){
+            switch(dataType){
+                case 'int':
+                    return parseInt(data) || 0
+                case 'float':
+                    return parseFloat(data) || 0
+                default :
+                return filterStr(data)
+            }
+        }
+        
+        //过滤中文字符和$
+        function filterStr(data){
+            if (!data) {
+                return 0;
+            }
+            
+            return parseFloat(data.replace(/^[\$a-zA-z\u4e00-\u9fa5 ]*(.*?)[a-zA-z\u4e00-\u9fa5 ]*$/,'$1'));
+        }
+        
+        return {'sortStr' : sortStr};
+    })();
+}
+/**
+ * 随机数
+ */
+function round(v, e) {
+    var t = 1;
+    for (; e > 0; t *= 10, e--)
+        ;
+    for (; e < 0; t /= 10, e++)
+        ;
+    return   Math.round(v * t) / t;
+}
+/**
+ * 验证字符串长度 支持中文
+ * @param {type} str
+ * @param {type} maxLen
+ * @returns {Boolean}
+ */
+function checkLength(str, maxLen) {
+    if (!str) {
+        return false;
+    }
+    var iLength = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) > 255) {
+            iLength += 2;
+        } else {
+            iLength += 1;
+        }
+    }
+    if (iLength > maxLen)
+        return false;
+    else
+        return true;
+}
+/**
+ * 过滤页面提交的数据中的HTML标签
+ */
+function htmlspecialchars(str)
+{    
+    str = str.replace(/&/g, '&amp;');
+    str = str.replace(/</g, '&lt;');
+    str = str.replace(/>/g, '&gt;');
+    str = str.replace(/"/g, '&quot;');
+    str = str.replace(/'/g, '&#039;');
+    return str;  
+}  
+/**
+ * 
+ * @param {type} str
+ * @param {type} 1 数字 2 英文 3 数字英文 4中文
+ * @returns {@exp;str@call;replace}
+ */
+function isStrCheck(str, type) {
+    if (type == 'undefined' || type == '' || type == 1) {
+        return str.replace(/[^0-9.]+/ig, '');
+    } else if (type == 2) {
+        return str.replace(/[^a-z]+/ig, '');
+    } else if (type == 3) {
+        return str.replace(/[^0-9.a-z]+/ig, '');
+    } else if (type == 4) {
+        return str.replace(/[\u4e00-\u9fa5]/g, '');
+    }else{
+        return str;
+    }
+}
+String.prototype.len = function() {
+    return this.replace(/[^\x00-\xff]/g, "**").length;
+}
+//Set maxlength for multiline TextBox
+function setMaxLength(object, length)
+{
+    var result = true;
+    //var controlid = document.selection.createRange().parentElement().id;
+    //var controlValue = document.selection.createRange().text;
+    var tempString = object.value;
+
+    var tt = "";
+    for (var i = 0; i < length; i++) {
+        if (tt.len() < length)
+            tt = tempString.substr(0, i + 1);
+        else
+            break;
+    }
+    if (tt.len() > length) {
+        tt = tt.substr(0, tt.length - 1);
+    }
+    if (object.value.len() > length)
+        object.value = tt;
+}
+/**
+ * 手机号码验证
+ * @param {type} str
+ * @returns {Boolean}
+ */
+
+function isMobel(str) {
+    if (!str) {
+        return false;
+    }
+    if (str.length != 11)
+        return false;
+    var checked = /^1\d{10}$/;
+    if (checked.test(str)) {
+        return true;
+    }
+    return false;
+}
+/**
+ * 邮箱验证
+ * @param {type} val
+ * @returns {Boolean}
+ */
+function isEmail(val) {
+    if (!val) {
+        return false;
+    }
+    var checked = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    if (checked.test(val)) {
+        return true;
+    }
+    return false;
+}
+/**
+ * 是否为数字
+ * @param {type} val
+ * @returns {Boolean}
+ */
+function isIntval(val) {
+    if (!val) {
+        return false;
+    }
+    var checked = /^-?\d+$/;
+    if (checked.test(val)) {
+        return true;
+    }
+    return false;
+}
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+function saveFile(fileurl) {
+    if (typeof (openURLToBrowser) != "undefined") {
+        openURLToBrowser(fileurl);
+    } else
+        window.open(fileurl);
+}
+//中文字符串截取
+function zh_substr(str, len) {
+    if (!str || !len) {
+        return '';
+    }
+    //预期计数：中文2字节，英文1字节    
+    var a = 0;      //循环计数    
+    var i = 0;      //临时字串    
+    var temp = '';
+    for (i = 0; i < str.length; i++)
+    {
+        if (str.charCodeAt(i) > 255) {             //按照预期计数增加2           
+            a += 2;
+        } else {
+            a++;
+        }         //如果增加计数后长度大于限定长度，就直接返回临时字符串        
+        if (a > len) {
+            return temp;
+        }          //将当前内容加到临时字符串        
+        temp += str.charAt(i);
+    }     //如果全部是单字节字符，就直接返回源字符串    
+    return str;
+}
+
+// 遮罩层
+function showDialog(divId) {
+    var newDivId = createDivId(divId);
+    var boarddiv = "<div id='" + newDivId + "' class='fullbg'></div> ";
+    $("#" + divId).after(boarddiv);
+	var popupName= $("#"+divId);
+    var _scrollHeight = $(document).scrollTop(),//获取当前窗口距离页面顶部高度
+	_windowHeight = $(window).height(),//获取当前窗口高度
+	_windowWidth = $(window).width(),//获取当前窗口宽度
+	_popupHeight = popupName.height(),//获取弹出层高度
+	_popupWeight = popupName.width();//获取弹出层宽度
+	_posiTop = (_windowHeight - _popupHeight)/2 + _scrollHeight;
+	_posiLeft = (_windowWidth - _popupWeight)/2;
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position	
+    $("#" + divId).show();
+}
+
+function popup(popupName){
+	var _scrollHeight = $(document).scrollTop(),//获取当前窗口距离页面顶部高度
+	_windowHeight = $(window).height(),//获取当前窗口高度
+	_windowWidth = $(window).width(),//获取当前窗口宽度
+	_popupHeight = popupName.height(),//获取弹出层高度
+	_popupWeight = popupName.width();//获取弹出层宽度
+	_posiTop = (_windowHeight - _popupHeight)/2 + _scrollHeight;
+	_posiLeft = (_windowWidth - _popupWeight)/2;
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position
+}
+
+//关闭灰色 jQuery 遮罩
+function hiddenDialog(divId) {
+    var newDivId = createDivId(divId)
+    $("#" + newDivId).remove();
+    $("#" + divId).hide();
+}
+/**
+ * 生成一个ID
+ * @param {type} divId
+ * @returns {String}
+ */
+function createDivId(divId) {
+    return divId + "abadeasFDsdeas";
+}
+/**
+ * 删除全选 传递name 
+ * @param {type} typename
+ * @returns {undefined}
+ */
+function checkAll(typename) {
+    $("input[name='" + typename + "']").attr("checked", true);
+    return true;
+}
+/**
+ * 取消全选 传递name 
+ * @param {type} typename
+ * @returns {undefined}
+ */
+function resultAll(typename) {
+    $("input[name='" + typename + "']").attr("checked", false);
+    return true;
+}
+/**
+ * 封装 alert
+ * @param {type} message
+ * @param {type} type true/false
+ * @returns {undefined}
+ */
+function showAlert(message, type) {
+    var divid = 'abcs' + parseInt(Math.random() * (10000 - 10) + 10);
+    $("#" + divid).remove();
+    var aclass = '';
+    if (type == 1) {
+        aclass = 'success_ilgks';
+        color = '#5ca354;';
+    } else {
+        color = '#f52c0b;';
+        aclass = 'error_ilgks';
+    }
+    var html = ' <div style="width:392px; height: 180px;" class="dialogs fzh" id="' + divid + '"><div class="fzh_top"><div class="fzh_p">提示！</div><div onclick="hiddenDialog(\'' + divid + '\')" class="zx_cha"></div></div>';
+    html += '<div class="fzh_bottom"><div style="width:95%; height:63px;margin:10px;text-align: center;" class="fzh_mc">';
+    html += '<div style="line-height:15px;float:left;margin-top:8px;margin-left:120px;" class="' + aclass + '">&nbsp;&nbsp;</div>';
+    html += '<div style="margin-left:5px;float:left;color:' + color + ';">' + message + '</div></div></div>'
+    html += '<div class="zx_an" style="text-align: center; width: 500px;marin-top:50px; margin-left: 0px;"><a onclick="hiddenDialog(\'' + divid + '\');$(\'#' + divid + '\').remove();" href="javascript:" style="margin-left:150px;">确 定</a></div><div>';
+    $("body").append(html);
+    showDialog(divid);
+}
+/**
+ * js 校验URl的合法性
+ * @param {type} url
+ * @returns {@exp;re@call;test|Boolean}
+ */
+function checkUrl(url) {
+    if (!url) {
+        return false;
+    }
+    //var strRegex = /^((https|http|ftp|rtsp|mms)?:\/\/)?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\.){3}[0-9]{1,4}|([0-9a-z_!~*'()-]+\.)*([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\.[a-z]{2,6})(:[0-9]{1,4})?((\/?)|(\/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+\/?)$/;
+    //var strRegex = '(https?://)?((([a-z0-9\\-]+\\.)*?)([a-z0-9\\-]+(\\.(com|net|org|gov|cc|biz|info|cn|co|tv|in|me|top|asia)(\\.(cn|hk|uk|jp|tw))?)))([^\\s\u4E00-\u9FA5<]*)?([\\s\u4E00-\u9FA5<$]{1})';
+    var strRegex = /((https|http|ftp|rtsp|mms)?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+    var re = new RegExp(strRegex);
+    if (re.test(url)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/**
+ * 文字 匹配 改变 颜色
+ * @param {type} str
+ * @param {type} value
+ * @returns {String|@exp;str@call;replace}
+ */
+function replaces(str, value) {
+    if (!str || !value) {
+        return str;
+    }
+    return str.replace(value, '<span class=\"highlight\">' + value + '</span>');
+}
+/**
+ * 提示信息
+ */
+function titleHidden(id) {
+    $("#" + id).next('div').remove();
+}
+
+function showTips(event,tips){
+	var html = '<div style="max-width:400px;padding:10px; z-index:20000;word-wrap:break-word; display:none; word-break:break-all;text-align:left;background:#f8efb6;background: -moz-linear-gradient(top, #ffffff, #e7e7f1);border-radius:2px;border:1px solid #767676;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #e7e7f1));-webkit-box-shadow: 3px 3px 3px #767676;-moz-box-shadow: 3px 3px 3px #767676;box-shadow: 3px 3px 3px #767676; position:absolute;"  id="divTips" name="divTips"></div>';
+	$("body").append(html);
+    x=event.clientX;  
+    y=event.clientY;
+    $('#divTips').html(tips);
+    $('#divTips').css('left',x);  
+    $('#divTips').css('top',y);  
+    $('#divTips').show();
+	
+}
+function hiddenTips(){  
+     $("#divTips").remove();
+} 
+
+/**
+ * 显示提示信息
+ */
+function titleShow(id, width) {
+    var text = $("#" + id).attr('text_val');
+    var html = '<div style="width:' + width + 'px; z-index:20000;word-wrap:break-word; word-break:break-all;text-align:left;background:#f8efb6;position:absolute;top:30px;line-height:25px;left:25%;background: -moz-linear-gradient(top, #ffffff, #e7e7f1);border-radius:2px;border:1px solid #767676;background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #e7e7f1));text-indent:10px;-webkit-box-shadow: 3px 3px 3px #767676;-moz-box-shadow: 3px 3px 3px #767676;box-shadow: 3px 3px 3px #767676;"><div style="margin-left:3px;">' + text + '</div></div>';
+    $("#" + id).after(html);
+}
+
+$(document).click(function(e) {
+    $(document).find('[autohide=yes]').each(function() {
+        if (e.target != this && !$.contains(this, e.target) && e.target != $(this).prev().get(0) && !$.contains($(this).prev().get(0), e.target)) {
+            $(this).hide();
+        }
+    });
+})
+/**
+ * 隐藏
+ * @param {type} id
+ * @returns {undefined}
+ */
+function HiddenSelect(id) {
+    $('.' + id).hide();
+}
+/**
+ *  中英文长度计算
+ * @param {type} str
+ * @returns {Number|@exp;str@pro;length|@exp;cArr@pro;length@exp;str@pro;length}
+ */
+function getStrLength(str) {
+    var cArr = str.match(/[^\x00-\xff]/ig);
+    return str.length + (cArr == null ? 0 : cArr.length);
+}
+/**
+ * 单位时间内显示并隐藏
+ * id 显示的地方 #abc .adbc .aa
+ * str 提示信息
+ */
+function hideTip(id, str) {
+    $(id).show().html(str);
+    setTimeout(function() {
+        $(id).hide().html(''); //清空区块内容
+    }, 2000);
+}

@@ -1,0 +1,9 @@
+-+
+-DCCI
+-D_IDA_XL
+-DWINNT
+-ID:\XMind\小能\用户账号\建用户脚本
+-ID:\Program Files (x86)\HP\LoadRunner\include
+-ed:\xmind\小能\用户账号\建用户脚本\\logfile.log
+d:\xmind\小能\用户账号\建用户脚本\\combined_建用户脚本.c
+d:\xmind\小能\用户账号\建用户脚本\\pre_cci.c

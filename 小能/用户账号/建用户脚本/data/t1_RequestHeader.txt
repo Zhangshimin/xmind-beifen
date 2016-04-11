@@ -1,0 +1,9 @@
+GET /index.php/settingelse/account_management?userid=kf_1111_ISME9754_T2D_ntalker_lizhipeng&token=5a0b1a6d6215136d4d415d4d8cef378f&disp=account&rnd=1458810998920 HTTP/1.1
+Accept: */*
+Accept-Language: zh-cn
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Shuame)
+Accept-Encoding: gzip, deflate
+Host: kpi3-test.ntalker.com
+Connection: Keep-Alive
+Cookie: NTKF_T2D_CLIENTID=guestTEMPEC99-E76E-976E-4E63-A77D99E41CD3
+

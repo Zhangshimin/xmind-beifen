@@ -1,0 +1,5 @@
+"usertype=0&pri=admin&gid=11054&accountName=xiaonengceshi000&user_id=&externalName=%E5%B0%8F%E8"
+"%83%BD%E6%B5%8B%E8%AF%95000&nickName=%E5%B0%8F%E8%83%BD%E6%B5%8B%E8%AF%95000&pass=111111&pass2"
+"=111111&is_robot_welcome=0&welcome=&remLen1=&no_reply=&remLen=&maxreception=8&dealkfid=all&mob"
+"ile=&email=&hand_day_num=5&hand_all_num=5&accountName=xiaonengceshi000&usericon=http://kpi3-te"
+"st.ntalker.com/application/static/setting/images/head.jpg"
