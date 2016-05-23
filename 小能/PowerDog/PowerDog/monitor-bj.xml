@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitor>
+	<!-- 监控组名称  -->
+	<monitorName>monitor-bj</monitorName>
+	<!-- 监控组报警邮箱地址  -->
+	<monitorTargetEmail>tianwenjun@xiaoneng.cn</monitorTargetEmail>
+	<!-- 监控组报警URL地址  -->
+	<!-- <monitorTargetURL>http://192.168.1.55:80/t2d/monitor</monitorTargetURL> -->
+	<!-- 监控周期，单位：ms -->
+	<monitorPeriod>60000</monitorPeriod>
+	<!-- 定时报告监控时间  -->
+	<monitorKeepaliveTime>10;11;12;13;14;15;16;17;18;19</monitorKeepaliveTime>
+	
+	<!-- 监控任务 -->
+	<monitorTask>
+	
+		<taskID>bj001</taskID>
+		
+		<!-- 客服协议类型，MQTT or RTMP  -->
+		<protocolType>MQTT</protocolType>
+		
+		<!-- getflashserver，入口地址         是否ping入口主机  -->
+		<flashServerURL ping="true" url="http://downt.ntalker.com/t2d"/>
+		
+		<!-- 监控专用siteid -->
+		<siteid>kf_9979</siteid>
+		
+		<!-- 客服登录名称40001_ISME9754_T2D_test01 -->
+		<waiterName>ntalker_lizhipeng</waiterName>
+		
+		<!-- 客服登录密码 -->
+		<waiterPassword>xiaoneng0308</waiterPassword>
+		
+		<!-- T2D是否集群，value为true时子标签生效 -->
+		<t2dCluster enabled="true" name="node1,node2,node3"/>
+		
+		<!-- tchat是否集群，value为true时子标签生效 -->
+		<tchatCluster enabled="true" name="node1,node2,node3"/>
+		
+		<!-- 
+			是否检查轨迹服务
+			value：为true时,开启监控轨迹
+			name：可以配置1个或多个，name中的ip配置为节点的真实IP，name和value需要一一对应
+			url:商品页，监控的网站需配置正则表达式，解析商品页的level=3
+		 -->
+		<trailCluster enabled="true"
+			name="ip1_cluster1,ip1_cluster2,ip2_cluster1,ip2_cluster2" value="node1=1,node2=2,node3=3,node4=4"
+			url="http://shop2.ntalker.com:81/?product-20.html" />
+		
+	</monitorTask>
+	
+</monitor>
